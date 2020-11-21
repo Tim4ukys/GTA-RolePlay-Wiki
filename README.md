@@ -47,3 +47,16 @@ lua скрипт написанный мною (Tim4ukys) специально �
 
 ![roleplay](https://i.imgur.com/vhJe8ug.png)
 
+10) Стробаскопы можно включить только открыв спец. меню.
+
+![strob](https://i.imgur.com/kSEfA8o.png)
+
+11) Так же в скрипте присутвует настройка скрипта, где вы можете выбрать стиль меню и настроить overlay(об этом позже)
+
+![settings](https://i.imgur.com/oDDeOHa.png)
+
+![settings1](https://i.imgur.com/VJrGvoB.png) ![settings2](https://i.imgur.com/MO9h47R.png) ![settings3](https://i.imgur.com/TqN6LyT.png) ![settings4](https://i.imgur.com/e4XWzSM.png) ![settings5](https://i.imgur.com/hNaFUOG.png) ![settings6](https://i.imgur.com/VVNxRDw.png)
+
+12) OverLay. В нём присутвует счётчик FPS, координаты игрока, здоровье игрока и если на персонаже будет броня, то она будет отабражаться у игрока. При закрытии основного меню, оверлей остаётся активным. Для того чтобы появилось меню нужно поставить галочку на против OverLay и любых из трёх, а именно: FPS, Координаты игрока, Здоровье и броня игрока. 
+
+![overlay](https://i.imgur.com/pBvhbGs.png) ![overlay](https://i.imgur.com/Xldesao.png) ![overlay](https://i.imgur.com/VtgpBGt.png) ![overlay](https://i.imgur.com/xcxacLl.png) ![overlay](https://i.imgur.com/1vmu9mj.png)
