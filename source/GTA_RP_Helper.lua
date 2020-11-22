@@ -1,6 +1,6 @@
 script_name 'GTA RolePlay wiki'
 script_author("Tim4ukys")
-script_description("Большая инцеклопедия про Криминальную Россию и GTA RP")
+script_description("Р‘РѕР»СЊС€Р°СЏ РёРЅС†РµРєР»РѕРїРµРґРёСЏ РїСЂРѕ РљСЂРёРјРёРЅР°Р»СЊРЅСѓСЋ Р РѕСЃСЃРёСЋ Рё GTA RP")
 script_url("https://vk.com/petrov_team")
 script_version_number(21112020)
 script_version('1.00')
@@ -11,9 +11,9 @@ local ini	= require 'inicfg'
 local nameScript = thisScript().name
 
 local imgui = require 'imgui'
-local encoding = require 'encoding' -- загружаем библиотеку
-encoding.default = 'CP1251' -- указываем кодировку по умолчанию, она должна совпадать с кодировкой файла. CP1251 - это Windows-1251
-u8 = encoding.UTF8 -- и создаём короткий псевдоним для кодировщика UTF-8
+local encoding = require 'encoding' -- Р·Р°РіСЂСѓР¶Р°РµРј Р±РёР±Р»РёРѕС‚РµРєСѓ
+encoding.default = 'CP1251' -- СѓРєР°Р·С‹РІР°РµРј РєРѕРґРёСЂРѕРІРєСѓ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, РѕРЅР° РґРѕР»Р¶РЅР° СЃРѕРІРїР°РґР°С‚СЊ СЃ РєРѕРґРёСЂРѕРІРєРѕР№ С„Р°Р№Р»Р°. CP1251 - СЌС‚Рѕ Windows-1251
+u8 = encoding.UTF8 -- Рё СЃРѕР·РґР°С‘Рј РєРѕСЂРѕС‚РєРёР№ РїСЃРµРІРґРѕРЅРёРј РґР»СЏ РєРѕРґРёСЂРѕРІС‰РёРєР° UTF-8
 
 local cfg = {
 	Active = {
@@ -21,7 +21,7 @@ local cfg = {
 	}
 }
 
---Обнавление--
+--РћР±РЅР°РІР»РµРЅРёРµ--
 local dlstatus = require('moonloader').download_status
 update_state = false
 
@@ -41,7 +41,7 @@ local show_obnavlen_yest = imgui.ImBool(false)
 local show_obnavlen_zav = imgui.ImBool(false)
 -----end------ 
 
--- Переменные --
+-- РџРµСЂРµРјРµРЅРЅС‹Рµ --
 local show_menu  = imgui.ImBool(false)
 local show_ped   = imgui.ImBool(false)
 local show_veh   = imgui.ImBool(false)
@@ -77,7 +77,7 @@ local show_nastrouka  = imgui.ImBool(false)
 -- local nastrouka_  = imgui.ImBool(false)
 -- local nastrouka_  = imgui.ImBool(false)
 -- local nastrouka_  = imgui.ImBool(false)
--- Фотки/Пруфы --
+-- Р¤РѕС‚РєРё/РџСЂСѓС„С‹ --
 local image_nelegorg
 local image_mesto_bizwar
 local image_mesto_kapt_lut
@@ -149,7 +149,7 @@ local KeyComboID = imgui.ImInt(0)
 
 local ComboKeys = {}
 
-function LoadSetting() -- Уёбищная загрузка. Внимание!!!! Кол-во опасного % говнокода зашкаливает!
+function LoadSetting() -- РЈС‘Р±РёС‰РЅР°СЏ Р·Р°РіСЂСѓР·РєР°. Р’РЅРёРјР°РЅРёРµ!!!! РљРѕР»-РІРѕ РѕРїР°СЃРЅРѕРіРѕ % РіРѕРІРЅРѕРєРѕРґР° Р·Р°С€РєР°Р»РёРІР°РµС‚!
 	cfg = ini.load(cfg, string.gsub(nameScript, '.lua', ''))
 	for v, k in pairs(KEY.key_names) do
 		table.insert(ComboKeys, type(k) ~= 'table' and k or string.format('%s(%s)', k[1], k[2]))
@@ -171,7 +171,7 @@ function SaveSetting()
 	ini.save(cfg, string.gsub(nameScript, '.lua', ''))
 end
 
-local SetStyle = ini.load({ -- Самый оптимизированый варик
+local SetStyle = ini.load({ -- РЎР°РјС‹Р№ РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅС‹Р№ РІР°СЂРёРє
   Style = 
   {
     StateStyle-- = 1 -- 6 max
@@ -195,7 +195,7 @@ local SetStyle = ini.load({ -- Самый оптимизированый варик
   }
 })
 
-------Стробоскопы--------
+------РЎС‚СЂРѕР±РѕСЃРєРѕРїС‹--------
 local show_strob_menu = imgui.ImBool(false)
 local strob_state
 
@@ -248,8 +248,8 @@ else
 end
 ---------end----------
 
--- Темы --
-function temnobordovui() -- Темно-Бордовая тема
+-- РўРµРјС‹ --
+function temnobordovui() -- РўРµРјРЅРѕ-Р‘РѕСЂРґРѕРІР°СЏ С‚РµРјР°
   imgui.SwitchContext()
   local style  = imgui.GetStyle()
   local colors = style.Colors
@@ -303,7 +303,7 @@ function temnobordovui() -- Темно-Бордовая тема
     colors[clr.ModalWindowDarkening] = ImVec4(0.80, 0.80, 0.80, 0.35)
 end
 
-function temnokrasn() -- Темно-Красная тема
+function temnokrasn() -- РўРµРјРЅРѕ-РљСЂР°СЃРЅР°СЏ С‚РµРјР°
     imgui.SwitchContext()
     local style = imgui.GetStyle()
     local colors = style.Colors
@@ -368,7 +368,7 @@ function temnokrasn() -- Темно-Красная тема
     colors[clr.ModalWindowDarkening]   = ImVec4(0.26, 0.26, 0.26, 0.60);
 end
 
-function temno_oransh() -- Темно-Оранжевая тема
+function temno_oransh() -- РўРµРјРЅРѕ-РћСЂР°РЅР¶РµРІР°СЏ С‚РµРјР°
     imgui.SwitchContext()
     local style = imgui.GetStyle()
     local colors = style.Colors
@@ -438,7 +438,7 @@ function temno_oransh() -- Темно-Оранжевая тема
     colors[clr.ModalWindowDarkening] = ImVec4(0.80, 0.80, 0.80, 0.35)
 end
 
-function black_grey() -- Светло-Серая тема
+function black_grey() -- РЎРІРµС‚Р»Рѕ-РЎРµСЂР°СЏ С‚РµРјР°
   imgui.SwitchContext()
   local style = imgui.GetStyle()
   local colors = style.Colors
@@ -498,7 +498,7 @@ function black_grey() -- Светло-Серая тема
   colors[clr.ModalWindowDarkening] = ImVec4(0.88, 0.88, 0.88, 0.35)
 end
 
-function StandartTheme() -- Стандартный стиль
+function StandartTheme() -- РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ СЃС‚РёР»СЊ
 	imgui.SwitchContext()
 	local style = imgui.GetStyle()
 	local colors = style.Colors
@@ -558,7 +558,7 @@ function StandartTheme() -- Стандартный стиль
 	colors[clr.ModalWindowDarkening]   = ImVec4(0.80, 0.80, 0.80, 0.35)
 end
 
-function CherryTheme() -- Вишнёвый стиль
+function CherryTheme() -- Р’РёС€РЅС‘РІС‹Р№ СЃС‚РёР»СЊ
   imgui.SwitchContext()
   local style = imgui.GetStyle()
   local colors = style.Colors
@@ -649,58 +649,58 @@ function imgui.OnDrawFrame()
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.Begin('GTA RP Wiki', imgui.ImVec2(210, 200), imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.MenuBar)
 				imgui.PushItemWidth(100)
-				if imgui.Combo(u8'Клавиша Активации', KeyComboID, ComboKeys)
+				if imgui.Combo(u8'РљР»Р°РІРёС€Р° РђРєС‚РёРІР°С†РёРё', KeyComboID, ComboKeys)
 				then
 					cfg.Active.Key = KEY.name_to_id(ComboKeys[KeyComboID.v + 1] , false )
 				end
 				imgui.PopItemWidth()
 				imgui.BeginMenuBar()
-					if imgui.BeginMenu(u8'Меню') then
-						if imgui.MenuItem(u8'Показывать это меню в игровом меню') then
+					if imgui.BeginMenu(u8'РњРµРЅСЋ') then
+						if imgui.MenuItem(u8'РџРѕРєР°Р·С‹РІР°С‚СЊ СЌС‚Рѕ РјРµРЅСЋ РІ РёРіСЂРѕРІРѕРј РјРµРЅСЋ') then
 							imgui.RenderInMenu = not imgui.RenderInMenu
 						end
-						if imgui.MenuItem(u8'Информация') then
+						if imgui.MenuItem(u8'РРЅС„РѕСЂРјР°С†РёСЏ') then
 							show_info.v = not show_info.v
 						end
-						if imgui.MenuItem(u8'Стробоскопы') then
+						if imgui.MenuItem(u8'РЎС‚СЂРѕР±РѕСЃРєРѕРїС‹') then
 							show_strob_menu.v = not show_strob_menu.v
 						end
-						if imgui.MenuItem(u8'Настройки') then
+						if imgui.MenuItem(u8'РќР°СЃС‚СЂРѕР№РєРё') then
 							show_nastrouka.v = not show_nastrouka.v
 						end 
 					imgui.EndMenu()
 					end
 				imgui.EndMenuBar()
-				if imgui.Button(u8'Скины', imgui.ImVec2(70.0, 50.0)) then
+				if imgui.Button(u8'РЎРєРёРЅС‹', imgui.ImVec2(70.0, 50.0)) then
 					show_ped.v = not show_ped.v
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Транспорт', imgui.ImVec2(80.0, 50.0)) then
+				if imgui.Button(u8'РўСЂР°РЅСЃРїРѕСЂС‚', imgui.ImVec2(80.0, 50.0)) then
 					show_veh.v = not show_veh.v
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Оружие', imgui.ImVec2(70.0, 50.0)) then
+				if imgui.Button(u8'РћСЂСѓР¶РёРµ', imgui.ImVec2(70.0, 50.0)) then
 					show_weap.v = not show_weap.v
 				end
 			-- if imgui.Button('Cheat-Codes', imgui.ImVec2(-0.1, 25.0)) then
 				-- show_codes.v = not show_codes.v
 			-- end
-			if imgui.Button(u8'Локации', imgui.ImVec2(-0.1, 25.0)) then
+			if imgui.Button(u8'Р›РѕРєР°С†РёРё', imgui.ImVec2(-0.1, 25.0)) then
 				show_etc.v = not show_etc.v
 			end
 			if imgui.Button('Criminal Russia Multiplayer', imgui.ImVec2(-0.1, 25.0)) then			
 				show_samp.v = not show_samp.v
 			end
-			if imgui.Button(u8'RP Термины', imgui.ImVec2(-0.1, 25.0)) then
+			if imgui.Button(u8'RP РўРµСЂРјРёРЅС‹', imgui.ImVec2(-0.1, 25.0)) then
 				show_rp.v = not show_rp.v
 			end 
-			if imgui.Button(u8'Правила', imgui.ImVec2(-0.1, 25.0)) then
+			if imgui.Button(u8'РџСЂР°РІРёР»Р°', imgui.ImVec2(-0.1, 25.0)) then
 				show_pravila.v = not show_pravila.v
 			end
-			if imgui.Button(u8'Гос. организациям', imgui.ImVec2(-0.1, 25.0)) then
+			if imgui.Button(u8'Р“РѕСЃ. РѕСЂРіР°РЅРёР·Р°С†РёСЏРј', imgui.ImVec2(-0.1, 25.0)) then
 				show_gosorg.v = not show_gosorg.v
 			end
-			if imgui.Button(u8'Нелег. организациям', imgui.ImVec2(-0.1, 25.0)) then
+			if imgui.Button(u8'РќРµР»РµРі. РѕСЂРіР°РЅРёР·Р°С†РёСЏРј', imgui.ImVec2(-0.1, 25.0)) then
 				show_nelegorg.v = not show_nelegorg.v
 			end
 		imgui.End()
@@ -708,14 +708,14 @@ function imgui.OnDrawFrame()
 			-- local sw, sh = getScreenResolution()
 			-- imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			-- imgui.SetNextWindowSize(imgui.ImVec2(210, 80), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Стробоскопы', show_strob_menu, imgui.WindowFlags.AlwaysAutoResize)
-				if imgui.Button(u8"Включить", imgui.ImVec2(80.0, 50.0)) then 
+			imgui.Begin(u8'РЎС‚СЂРѕР±РѕСЃРєРѕРїС‹', show_strob_menu, imgui.WindowFlags.AlwaysAutoResize)
+				if imgui.Button(u8"Р’РєР»СЋС‡РёС‚СЊ", imgui.ImVec2(80.0, 50.0)) then 
 					strob_state = true
 					SetStyle.Stroboskopu.State = 1
 					ini.save(SetStyle)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8"Выключить", imgui.ImVec2(80.0, 50.0)) then 
+				if imgui.Button(u8"Р’С‹РєР»СЋС‡РёС‚СЊ", imgui.ImVec2(80.0, 50.0)) then 
 					strob_state = false
 					SetStyle.Stroboskopu.State = 0
 					ini.save(SetStyle)
@@ -726,40 +726,40 @@ function imgui.OnDrawFrame()
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(557, 500), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Нелег. организациям', show_nelegorg)
-				if imgui.CollapsingHeader(u8'Правила каптов')
+			imgui.Begin(u8'РќРµР»РµРі. РѕСЂРіР°РЅРёР·Р°С†РёСЏРј', show_nelegorg)
+				if imgui.CollapsingHeader(u8'РџСЂР°РІРёР»Р° РєР°РїС‚РѕРІ')
 				then
 					ImFileParse('\\gta rp wiki\\gtarp\\neleg_org\\pravkapt.txt', nil, nil, 'pattern')
 				end
-				if imgui.CollapsingHeader(u8'Правила бизваров')
+				if imgui.CollapsingHeader(u8'РџСЂР°РІРёР»Р° Р±РёР·РІР°СЂРѕРІ')
 				then
 					ImFileParse('\\gta rp wiki\\gtarp\\neleg_org\\pravbuzwar.txt', nil, nil, 'pattern')
 				end
-				if imgui.CollapsingHeader(u8'Места для проведения Бизваров/Каптов') 
+				if imgui.CollapsingHeader(u8'РњРµСЃС‚Р° РґР»СЏ РїСЂРѕРІРµРґРµРЅРёСЏ Р‘РёР·РІР°СЂРѕРІ/РљР°РїС‚РѕРІ') 
 				then
-					imgui.Text(u8' Бизвары между Мафиями могут проходить только в указанном ниже месте:')
-					if imgui.TreeNode(u8'Место') then
-						imgui.Text(u8'  Находится к югу от "КАД"')
+					imgui.Text(u8' Р‘РёР·РІР°СЂС‹ РјРµР¶РґСѓ РњР°С„РёСЏРјРё РјРѕРіСѓС‚ РїСЂРѕС…РѕРґРёС‚СЊ С‚РѕР»СЊРєРѕ РІ СѓРєР°Р·Р°РЅРЅРѕРј РЅРёР¶Рµ РјРµСЃС‚Рµ:')
+					if imgui.TreeNode(u8'РњРµСЃС‚Рѕ') then
+						imgui.Text(u8'  РќР°С…РѕРґРёС‚СЃСЏ Рє СЋРіСѓ РѕС‚ "РљРђР”"')
 						imgui.Image(image_mesto_bizwar, imgui.ImVec2(512, 512))
 						imgui.TreePop()
 					end
-					imgui.Text(u8'\n Всего есть 4 места где можно проводить капты для ОПГ. Если вы выйдите за')
-					imgui.Text(u8' красную линию, вы получите деморган. Во время капта можно разойтись по всему ')
-					imgui.Text(u8' гетто. Но не выходя за его границы.')
-					if imgui.TreeNode(u8'Места') then
-						imgui.Text(u8'  1) Лыткарино')
+					imgui.Text(u8'\n Р’СЃРµРіРѕ РµСЃС‚СЊ 4 РјРµСЃС‚Р° РіРґРµ РјРѕР¶РЅРѕ РїСЂРѕРІРѕРґРёС‚СЊ РєР°РїС‚С‹ РґР»СЏ РћРџР“. Р•СЃР»Рё РІС‹ РІС‹Р№РґРёС‚Рµ Р·Р°')
+					imgui.Text(u8' РєСЂР°СЃРЅСѓСЋ Р»РёРЅРёСЋ, РІС‹ РїРѕР»СѓС‡РёС‚Рµ РґРµРјРѕСЂРіР°РЅ. Р’Рѕ РІСЂРµРјСЏ РєР°РїС‚Р° РјРѕР¶РЅРѕ СЂР°Р·РѕР№С‚РёСЃСЊ РїРѕ РІСЃРµРјСѓ ')
+					imgui.Text(u8' РіРµС‚С‚Рѕ. РќРѕ РЅРµ РІС‹С…РѕРґСЏ Р·Р° РµРіРѕ РіСЂР°РЅРёС†С‹.')
+					if imgui.TreeNode(u8'РњРµСЃС‚Р°') then
+						imgui.Text(u8'  1) Р›С‹С‚РєР°СЂРёРЅРѕ')
 						imgui.Text(u8'  ')
 						imgui.SameLine()
 						imgui.Image(image_mesto_kapt_lut, imgui.ImVec2(512, 512))
-						imgui.Text(u8'  2) Корякино')
+						imgui.Text(u8'  2) РљРѕСЂСЏРєРёРЅРѕ')
 						imgui.Text(u8'  ')
 						imgui.SameLine()
 						imgui.Image(image_mesto_kapt_kor, imgui.ImVec2(512, 356))
-						imgui.Text(u8'  3) Бусаево')
+						imgui.Text(u8'  3) Р‘СѓСЃР°РµРІРѕ')
 						imgui.Text(u8'  ')
 						imgui.SameLine()
 						imgui.Image(image_mesto_kapt_bys, imgui.ImVec2(512, 356))
-						imgui.Text(u8'  4) Эдово')
+						imgui.Text(u8'  4) Р­РґРѕРІРѕ')
 						imgui.Text(u8'  ')
 						imgui.SameLine()
 						imgui.Image(image_mesto_kapt_edo, imgui.ImVec2(512, 512))
@@ -776,7 +776,7 @@ function imgui.OnDrawFrame()
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(460, 500), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Персонажи/Скины', show_ped)
+			imgui.Begin(u8'РџРµСЂСЃРѕРЅР°Р¶Рё/РЎРєРёРЅС‹', show_ped)
 				ImFileParse('\\gta rp wiki\\peds.txt', imgui.ImVec2(55, 100), ped_img, 'ID: (%d+)')
 			imgui.End()
 		end
@@ -784,83 +784,83 @@ function imgui.OnDrawFrame()
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(460, 500), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Транспортные средства', show_veh)
+			imgui.Begin(u8'РўСЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР°', show_veh)
 			-- for k, v in pairs(vehs) do
 			-- 	if imgui.TreeNode(v) then
-			-- 		ImFileParse('\\gta rp wiki\\vehicles\\'..v..'.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+			-- 		ImFileParse('\\gta rp wiki\\vehicles\\'..v..'.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 			-- 		imgui.TreePop()
 			-- 	end
 			-- end
-				if imgui.TreeNode(u8"Воздушный транспорт") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Aircraft.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"Р’РѕР·РґСѓС€РЅС‹Р№ С‚СЂР°РЅСЃРїРѕСЂС‚") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Aircraft.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Водный транспорт") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Boats.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"Р’РѕРґРЅС‹Р№ С‚СЂР°РЅСЃРїРѕСЂС‚") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Boats.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8'"Купе" и "Хэтчбеки"') then
-					ImFileParse('\\gta rp wiki\\vehicles\\Coupes & Hatchbacks.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8'"РљСѓРїРµ" Рё "РҐСЌС‚С‡Р±РµРєРё"') then
+					ImFileParse('\\gta rp wiki\\vehicles\\Coupes & Hatchbacks.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Правительственный транспорт") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Government.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"РџСЂР°РІРёС‚РµР»СЊСЃС‚РІРµРЅРЅС‹Р№ С‚СЂР°РЅСЃРїРѕСЂС‚") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Government.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Промышленный транспорт") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Industrial.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"РџСЂРѕРјС‹С€Р»РµРЅРЅС‹Р№ С‚СЂР°РЅСЃРїРѕСЂС‚") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Industrial.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Лоурайдер`s") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Lowriders.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"Р›РѕСѓСЂР°Р№РґРµСЂ`s") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Lowriders.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Мотоциклы и Велосипеды") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Motercycles & Bikes.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"РњРѕС‚РѕС†РёРєР»С‹ Рё Р’РµР»РѕСЃРёРїРµРґС‹") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Motercycles & Bikes.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Необычный транспорт") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Novelty.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"РќРµРѕР±С‹С‡РЅС‹Р№ С‚СЂР°РЅСЃРїРѕСЂС‚") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Novelty.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Рабочий транспорт") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Public Service.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"Р Р°Р±РѕС‡РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Public Service.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"RС-игрушки") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Remote Control.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"RРЎ-РёРіСЂСѓС€РєРё") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Remote Control.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8'"Седаны" И "Универсалы"') then
-					ImFileParse('\\gta rp wiki\\vehicles\\Sedans & Station Wagons.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8'"РЎРµРґР°РЅС‹" Р "РЈРЅРёРІРµСЂСЃР°Р»С‹"') then
+					ImFileParse('\\gta rp wiki\\vehicles\\Sedans & Station Wagons.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"СпортКары") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Sport.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"РЎРїРѕСЂС‚РљР°СЂС‹") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Sport.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8'"Внедорожники" И "Пикапы"') then
-					ImFileParse('\\gta rp wiki\\vehicles\\SUVs & Pickup Trucks.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8'"Р’РЅРµРґРѕСЂРѕР¶РЅРёРєРё" Р "РџРёРєР°РїС‹"') then
+					ImFileParse('\\gta rp wiki\\vehicles\\SUVs & Pickup Trucks.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Прицепы") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Trailers.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"РџСЂРёС†РµРїС‹") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Trailers.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Поезда") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Trains.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"РџРѕРµР·РґР°") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Trains.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Автомобили с обвесом") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Tuners.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"РђРІС‚РѕРјРѕР±РёР»Рё СЃ РѕР±РІРµСЃРѕРј") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Tuners.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Фургоны") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Vans.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"Р¤СѓСЂРіРѕРЅС‹") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Vans.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
-				if imgui.TreeNode(u8"Другое") then
-					ImFileParse('\\gta rp wiki\\vehicles\\Misc.txt', imgui.ImVec2(175, 100), veh_img, u8'т/с: (%d+)')
+				if imgui.TreeNode(u8"Р”СЂСѓРіРѕРµ") then
+					ImFileParse('\\gta rp wiki\\vehicles\\Misc.txt', imgui.ImVec2(175, 100), veh_img, u8'С‚/СЃ: (%d+)')
 					imgui.TreePop()
 				end
 			imgui.End()
@@ -869,7 +869,7 @@ function imgui.OnDrawFrame()
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(460, 500), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Оружие', show_weap)
+			imgui.Begin(u8'РћСЂСѓР¶РёРµ', show_weap)
 				ImFileParse('\\gta rp wiki\\weapons.txt', imgui.ImVec2(50,50), weap_img, 'ID: (%d+)')
 			imgui.End()
 		end
@@ -883,12 +883,12 @@ function imgui.OnDrawFrame()
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(460, 500), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Локации', show_etc)
-				-- if imgui.TreeNode(u8'Важные места') then
+			imgui.Begin(u8'Р›РѕРєР°С†РёРё', show_etc)
+				-- if imgui.TreeNode(u8'Р’Р°Р¶РЅС‹Рµ РјРµСЃС‚Р°') then
 				-- 	-- ImFileParse('\\gta rp wiki\\etc\\Snapshots.txt', imgui.ImVec2(225, 169), snp_img, '(%d+).')
 				-- 	imgui.TreePop()
 				-- end
-				-- if imgui.TreeNode(u8'Бизнесы') then
+				-- if imgui.TreeNode(u8'Р‘РёР·РЅРµСЃС‹') then
 				-- 	ImFileParse('\\gta rp wiki\\etc\\Snapshots.txt', imgui.ImVec2(225, 169), snp_img, '(%d+).')
 				-- 	imgui.TreePop()
 				-- end
@@ -898,31 +898,31 @@ function imgui.OnDrawFrame()
 		if show_info.v then
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2 + 200, sh / 2 - 150), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-			imgui.Begin(u8'Информация', show_info, imgui.WindowFlags.AlwaysAutoResize)
-				imgui.Text(u8'Автор: Tim4ukys\nГруппа по GTA RP: Petrov Team\nВерсия: '..thisScript().version) -- Кто это отредактирует
+			imgui.Begin(u8'РРЅС„РѕСЂРјР°С†РёСЏ', show_info, imgui.WindowFlags.AlwaysAutoResize)
+				imgui.Text(u8'РђРІС‚РѕСЂ: Tim4ukys\nР“СЂСѓРїРїР° РїРѕ GTA RP: Petrov Team\nР’РµСЂСЃРёСЏ: '..thisScript().version) -- РљС‚Рѕ СЌС‚Рѕ РѕС‚СЂРµРґР°РєС‚РёСЂСѓРµС‚
 				imgui.Separator()
-				-- imgui.Text(u8'Автор SA Wiki - LUCHARE')
-				-- imgui.Text(u8'Автор Стробоскопов  - AppleThe')
-				-- imgui.Text(u8'Автор переделки SA Wiki под SAMP - Dark_Knight')
-				-- imgui.Text(u8'Автор маштабной переделки SA Wiki под Криминальную Россию и GTA RP - Tim4ukys')
-				imgui.Text(u8'Информация:\nДанный скрипт призван облегчить работу Администрации проекта GTA RP,')
-				imgui.Text(u8'Гос. Сотрудникам, Бандитам и простым игрокам проекта GTA RolePlay.')
-				imgui.Text(u8'У каждого была ситуация(допустим), когда лидер ФСБ на вербовке,')
-				imgui.Text(u8'спрашивает статью УкРФ, которую в обычной игре используется 1% и')
-				imgui.Text(u8'конечно же ты её забыл, с этим скриптом можно просто нажать')
-				imgui.Text(u8'на клавишу, быстро освежить память и не создавать нелепых ситуаций.')
-				imgui.Text(u8'Так же администратор перед мп может не лезть на форум, а просто')
-				imgui.Text(u8'залезть в этот хелпер и выбрать автомобиль или скин.')
-				imgui.Text(u8'\nЕсли вам скрипт действительно понравился, то прошу подписаться на мою группу')
-				imgui.Text(u8'Petrov Team и рассказать о ней друзьям.\nЭто будет самая лучшая благодарность за мои труды:)')
+				-- imgui.Text(u8'РђРІС‚РѕСЂ SA Wiki - LUCHARE')
+				-- imgui.Text(u8'РђРІС‚РѕСЂ РЎС‚СЂРѕР±РѕСЃРєРѕРїРѕРІ  - AppleThe')
+				-- imgui.Text(u8'РђРІС‚РѕСЂ РїРµСЂРµРґРµР»РєРё SA Wiki РїРѕРґ SAMP - Dark_Knight')
+				-- imgui.Text(u8'РђРІС‚РѕСЂ РјР°С€С‚Р°Р±РЅРѕР№ РїРµСЂРµРґРµР»РєРё SA Wiki РїРѕРґ РљСЂРёРјРёРЅР°Р»СЊРЅСѓСЋ Р РѕСЃСЃРёСЋ Рё GTA RP - Tim4ukys')
+				imgui.Text(u8'РРЅС„РѕСЂРјР°С†РёСЏ:\nР”Р°РЅРЅС‹Р№ СЃРєСЂРёРїС‚ РїСЂРёР·РІР°РЅ РѕР±Р»РµРіС‡РёС‚СЊ СЂР°Р±РѕС‚Сѓ РђРґРјРёРЅРёСЃС‚СЂР°С†РёРё РїСЂРѕРµРєС‚Р° GTA RP,')
+				imgui.Text(u8'Р“РѕСЃ. РЎРѕС‚СЂСѓРґРЅРёРєР°Рј, Р‘Р°РЅРґРёС‚Р°Рј Рё РїСЂРѕСЃС‚С‹Рј РёРіСЂРѕРєР°Рј РїСЂРѕРµРєС‚Р° GTA RolePlay.')
+				imgui.Text(u8'РЈ РєР°Р¶РґРѕРіРѕ Р±С‹Р»Р° СЃРёС‚СѓР°С†РёСЏ(РґРѕРїСѓСЃС‚РёРј), РєРѕРіРґР° Р»РёРґРµСЂ Р¤РЎР‘ РЅР° РІРµСЂР±РѕРІРєРµ,')
+				imgui.Text(u8'СЃРїСЂР°С€РёРІР°РµС‚ СЃС‚Р°С‚СЊСЋ РЈРєР Р¤, РєРѕС‚РѕСЂСѓСЋ РІ РѕР±С‹С‡РЅРѕР№ РёРіСЂРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ 1% Рё')
+				imgui.Text(u8'РєРѕРЅРµС‡РЅРѕ Р¶Рµ С‚С‹ РµС‘ Р·Р°Р±С‹Р», СЃ СЌС‚РёРј СЃРєСЂРёРїС‚РѕРј РјРѕР¶РЅРѕ РїСЂРѕСЃС‚Рѕ РЅР°Р¶Р°С‚СЊ')
+				imgui.Text(u8'РЅР° РєР»Р°РІРёС€Сѓ, Р±С‹СЃС‚СЂРѕ РѕСЃРІРµР¶РёС‚СЊ РїР°РјСЏС‚СЊ Рё РЅРµ СЃРѕР·РґР°РІР°С‚СЊ РЅРµР»РµРїС‹С… СЃРёС‚СѓР°С†РёР№.')
+				imgui.Text(u8'РўР°Рє Р¶Рµ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ РїРµСЂРµРґ РјРї РјРѕР¶РµС‚ РЅРµ Р»РµР·С‚СЊ РЅР° С„РѕСЂСѓРј, Р° РїСЂРѕСЃС‚Рѕ')
+				imgui.Text(u8'Р·Р°Р»РµР·С‚СЊ РІ СЌС‚РѕС‚ С…РµР»РїРµСЂ Рё РІС‹Р±СЂР°С‚СЊ Р°РІС‚РѕРјРѕР±РёР»СЊ РёР»Рё СЃРєРёРЅ.')
+				imgui.Text(u8'\nР•СЃР»Рё РІР°Рј СЃРєСЂРёРїС‚ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ РїРѕРЅСЂР°РІРёР»СЃСЏ, С‚Рѕ РїСЂРѕС€Сѓ РїРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РјРѕСЋ РіСЂСѓРїРїСѓ')
+				imgui.Text(u8'Petrov Team Рё СЂР°СЃСЃРєР°Р·Р°С‚СЊ Рѕ РЅРµР№ РґСЂСѓР·СЊСЏРј.\nР­С‚Рѕ Р±СѓРґРµС‚ СЃР°РјР°СЏ Р»СѓС‡С€Р°СЏ Р±Р»Р°РіРѕРґР°СЂРЅРѕСЃС‚СЊ Р·Р° РјРѕРё С‚СЂСѓРґС‹:)')
 				imgui.Separator()
-				imgui.Text(u8'Связь:')
-				imgui.Text(u8'Ник в игре: Vasiliy_Katasi\nНомер: 44-14-14\nСервер: 02')
+				imgui.Text(u8'РЎРІСЏР·СЊ:')
+				imgui.Text(u8'РќРёРє РІ РёРіСЂРµ: Vasiliy_Katasi\nРќРѕРјРµСЂ: 44-14-14\nРЎРµСЂРІРµСЂ: 02')
 				imgui.Text(u8'VK - vk.com/tim4ukys')
 				imgui.Text(u8'VK groups - vk.com/petrov_team')
 				imgui.Separator()
-				imgui.Text(u8'Спасибо веб-страницам:\nwiki.sa-mp.com\nforum.gtarp.ru\nblast.hk') -- и это, тот педрила ;)
-				imgui.Text(u8'Отдельное спасибо моему другу "Rich_Zloy" за помощь =)')
+				imgui.Text(u8'РЎРїР°СЃРёР±Рѕ РІРµР±-СЃС‚СЂР°РЅРёС†Р°Рј:\nwiki.sa-mp.com\nforum.gtarp.ru\nblast.hk') -- Рё СЌС‚Рѕ, С‚РѕС‚ РїРµРґСЂРёР»Р° ;)
+				imgui.Text(u8'РћС‚РґРµР»СЊРЅРѕРµ СЃРїР°СЃРёР±Рѕ РјРѕРµРјСѓ РґСЂСѓРіСѓ "Rich_Zloy" Р·Р° РїРѕРјРѕС‰СЊ =)')
 				imgui.Text(' ')
 				imgui.Image(image_logo_authors, imgui.ImVec2(512,176))
 			imgui.End()
@@ -932,11 +932,11 @@ function imgui.OnDrawFrame()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(950, 350), imgui.Cond.FirstUseEver)
 			imgui.Begin('Criminal Russia Multiplayer', show_samp)
-				if imgui.CollapsingHeader(u8'Команды')
+				if imgui.CollapsingHeader(u8'РљРѕРјР°РЅРґС‹')
 				then
 					ImFileParse('\\gta rp wiki\\crmp\\commands.txt', nil, nil, 'pattern')
 				end
-				if imgui.CollapsingHeader(u8'Настройки (sa-mp.cfg)')
+				if imgui.CollapsingHeader(u8'РќР°СЃС‚СЂРѕР№РєРё (sa-mp.cfg)')
 				then
 					ImFileParse('\\gta rp wiki\\crmp\\settings.txt', nil, nil, 'pattern')
 				end
@@ -946,7 +946,7 @@ function imgui.OnDrawFrame()
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(650, 450), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'RolePlay Термины', show_rp)
+			imgui.Begin(u8'RolePlay РўРµСЂРјРёРЅС‹', show_rp)
 				ImFileParse('\\gta rp wiki\\gtarp\\rpterms.txt', nil, nil, 'rppat')
 			imgui.End()
 		end 
@@ -954,17 +954,17 @@ function imgui.OnDrawFrame()
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(730, 500), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Правила', show_pravila)
-				if imgui.CollapsingHeader(u8'Общие правила проекта') then
+			imgui.Begin(u8'РџСЂР°РІРёР»Р°', show_pravila)
+				if imgui.CollapsingHeader(u8'РћР±С‰РёРµ РїСЂР°РІРёР»Р° РїСЂРѕРµРєС‚Р°') then
 					ImFileParse('\\gta rp wiki\\gtarp\\obshpravila.txt', nil, nil, 'obshpravilapat')
 				end
-				if imgui.CollapsingHeader(u8'Правила обращения в репорт') then
+				if imgui.CollapsingHeader(u8'РџСЂР°РІРёР»Р° РѕР±СЂР°С‰РµРЅРёСЏ РІ СЂРµРїРѕСЂС‚') then
 					ImFileParse('\\gta rp wiki\\gtarp\\obshpravilavrep.txt', nil, nil, 'obshpravilavreppat')
 				end
-				if imgui.CollapsingHeader(u8'Правила использования голосового чата') then
+				if imgui.CollapsingHeader(u8'РџСЂР°РІРёР»Р° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РіРѕР»РѕСЃРѕРІРѕРіРѕ С‡Р°С‚Р°') then
 					ImFileParse('\\gta rp wiki\\gtarp\\obshpravilausevicechat.txt', nil, nil, 'obshpravilausevicechatpat')
 				end
-				if imgui.CollapsingHeader(u8'Правила войны семей и ограблений банка') then
+				if imgui.CollapsingHeader(u8'РџСЂР°РІРёР»Р° РІРѕР№РЅС‹ СЃРµРјРµР№ Рё РѕРіСЂР°Р±Р»РµРЅРёР№ Р±Р°РЅРєР°') then
 					ImFileParse('\\gta rp wiki\\gtarp\\obshpravilawarfam.txt', nil, nil, 'obshpravilawarfampat')
 				end
 			imgui.End()
@@ -972,34 +972,34 @@ function imgui.OnDrawFrame()
 		if show_nastrouka.v then
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2 - 200, sh / 2 - 50), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-			imgui.Begin(u8'Настройки', show_nastrouka, imgui.WindowFlags.AlwaysAutoResize)
+			imgui.Begin(u8'РќР°СЃС‚СЂРѕР№РєРё', show_nastrouka, imgui.WindowFlags.AlwaysAutoResize)
 				-- SetStyle.Style.StateStyle == 1
-				if imgui.Button(u8'Стандартный стиль', imgui.ImVec2(280.0, 30.0)) then
+				if imgui.Button(u8'РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ СЃС‚РёР»СЊ', imgui.ImVec2(280.0, 30.0)) then
 					StandartTheme()
 					SetStyle.Style.StateStyle = 5
 					ini.save(SetStyle)
 				end
-				if imgui.Button(u8'Вишнёвый стиль', imgui.ImVec2(280.0, 30.0)) then
+				if imgui.Button(u8'Р’РёС€РЅС‘РІС‹Р№ СЃС‚РёР»СЊ', imgui.ImVec2(280.0, 30.0)) then
 					CherryTheme()
 					SetStyle.Style.StateStyle = 6
 					ini.save(SetStyle)
 				end
-				if imgui.Button(u8'Светло-Серая тема', imgui.ImVec2(280.0, 30.0)) then
+				if imgui.Button(u8'РЎРІРµС‚Р»Рѕ-РЎРµСЂР°СЏ С‚РµРјР°', imgui.ImVec2(280.0, 30.0)) then
 					black_grey()
 					SetStyle.Style.StateStyle = 4
 					ini.save(SetStyle)
 				end 
-				if imgui.Button(u8'Темно-Оранжевая тема', imgui.ImVec2(280.0, 30.0)) then 
+				if imgui.Button(u8'РўРµРјРЅРѕ-РћСЂР°РЅР¶РµРІР°СЏ С‚РµРјР°', imgui.ImVec2(280.0, 30.0)) then 
 					temno_oransh()
 					SetStyle.Style.StateStyle = 3
 					ini.save(SetStyle)
 				end 
-				if imgui.Button(u8'Темно-Красная тема', imgui.ImVec2(280.0, 30.0)) then
+				if imgui.Button(u8'РўРµРјРЅРѕ-РљСЂР°СЃРЅР°СЏ С‚РµРјР°', imgui.ImVec2(280.0, 30.0)) then
 					temnokrasn()
 					SetStyle.Style.StateStyle = 2
 					ini.save(SetStyle)
 				end 
-				if imgui.Button(u8'Темно-Бордовая тема', imgui.ImVec2(280.0, 30.0)) then
+				if imgui.Button(u8'РўРµРјРЅРѕ-Р‘РѕСЂРґРѕРІР°СЏ С‚РµРјР°', imgui.ImVec2(280.0, 30.0)) then
 					temnobordovui()
 					SetStyle.Style.StateStyle = 1
 					ini.save(SetStyle)
@@ -1017,10 +1017,10 @@ function imgui.OnDrawFrame()
 				-- SetStyle.State_OverLay.State_Healt
 				-- SetStyle.State_OverLay.State_Koor
 				imgui.Separator()
-				if imgui.SliderInt(u8"Погода", Wheather_St, 1, 45) then
+				if imgui.SliderInt(u8"РџРѕРіРѕРґР°", Wheather_St, 1, 45) then
 					-- forceWeatherNow(tonumber(Wheather_St))
 				end
-				imgui.Text(string.format(u8"Погода - %d", tonumber(Wheather_St.v)))
+				imgui.Text(string.format(u8"РџРѕРіРѕРґР° - %d", tonumber(Wheather_St.v)))
 				forceWeatherNow(tonumber(Wheather_St.v))
 				imgui.Separator()
 				if imgui.Checkbox("Overlay", show_overlay) then
@@ -1036,19 +1036,19 @@ function imgui.OnDrawFrame()
 					end
 					imgui.Text(' ')
 					imgui.SameLine()
-					if imgui.Checkbox(u8'Координаты игрока', show_overlay_koor) then
+					if imgui.Checkbox(u8'РљРѕРѕСЂРґРёРЅР°С‚С‹ РёРіСЂРѕРєР°', show_overlay_koor) then
 						SetStyle.State_OverLay.State_Koor = 1
 						ini.save(SetStyle)
 					end
 					imgui.Text(' ')
 					imgui.SameLine()
-					if imgui.Checkbox(u8'Здоровье и броня игрока', show_overlay_healh) then
+					if imgui.Checkbox(u8'Р—РґРѕСЂРѕРІСЊРµ Рё Р±СЂРѕРЅСЏ РёРіСЂРѕРєР°', show_overlay_healh) then
 						SetStyle.State_OverLay.State_Healt = 1
 						ini.save(SetStyle)
 					end
 					imgui.Text(' ')
 					imgui.SameLine()
-					if imgui.Checkbox(u8'Дата и время', show_overlay_time) then 
+					if imgui.Checkbox(u8'Р”Р°С‚Р° Рё РІСЂРµРјСЏ', show_overlay_time) then 
 						SetStyle.State_OverLay.State_Time = 1
 						ini.save(SetStyle)
 					end
@@ -1059,17 +1059,17 @@ function imgui.OnDrawFrame()
 			local sw, sh = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sw / 2 + 200, sh / 2 + 100), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			-- imgui.SetNextWindowSize(imgui.ImVec2(730, 500), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Гос. организациям', show_gosorg)
-				if imgui.Button(u8'Законодательство', imgui.ImVec2(300.0, 25.0)) then
+			imgui.Begin(u8'Р“РѕСЃ. РѕСЂРіР°РЅРёР·Р°С†РёСЏРј', show_gosorg)
+				if imgui.Button(u8'Р—Р°РєРѕРЅРѕРґР°С‚РµР»СЊСЃС‚РІРѕ', imgui.ImVec2(300.0, 25.0)) then
 					show_zakonadatelstvo.v = not show_zakonadatelstvo.v
 				end
-				if imgui.Button(u8'Правила редактирования объявлений', imgui.ImVec2(300.0, 25.0)) then
+				if imgui.Button(u8'РџСЂР°РІРёР»Р° СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РѕР±СЉСЏРІР»РµРЅРёР№', imgui.ImVec2(300.0, 25.0)) then
 					show_pro.v = not show_pro.v
 				end
-				if imgui.Button(u8'Иерархия должностей гос. структур', imgui.ImVec2(300.0, 25.0)) then
+				if imgui.Button(u8'РРµСЂР°СЂС…РёСЏ РґРѕР»Р¶РЅРѕСЃС‚РµР№ РіРѕСЃ. СЃС‚СЂСѓРєС‚СѓСЂ', imgui.ImVec2(300.0, 25.0)) then
 					show_uerxuya.v = not show_uerxuya.v
 				end
-				if imgui.Button(u8'Правила гос. волны', imgui.ImVec2(300.0, 25.0)) then 
+				if imgui.Button(u8'РџСЂР°РІРёР»Р° РіРѕСЃ. РІРѕР»РЅС‹', imgui.ImVec2(300.0, 25.0)) then 
 					show_prav_gos_volnu.v = not show_prav_gos_volnu.v
 				end
 			imgui.End()
@@ -1077,7 +1077,7 @@ function imgui.OnDrawFrame()
 				local sw, sh = getScreenResolution()
 				imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 				imgui.SetNextWindowSize(imgui.ImVec2(730, 500), imgui.Cond.FirstUseEver)
-				imgui.Begin(u8'Иерархия должностей гос. структур', show_uerxuya)
+				imgui.Begin(u8'РРµСЂР°СЂС…РёСЏ РґРѕР»Р¶РЅРѕСЃС‚РµР№ РіРѕСЃ. СЃС‚СЂСѓРєС‚СѓСЂ', show_uerxuya)
 					-- local colors = style.Colors
 					-- local clr    = imgui.Col
 					Uearhuya()
@@ -1087,14 +1087,14 @@ function imgui.OnDrawFrame()
 				local sw, sh = getScreenResolution()
 				imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 				imgui.SetNextWindowSize(imgui.ImVec2(730, 500), imgui.Cond.FirstUseEver)
-				imgui.Begin(u8'Законодательство РФ', show_zakonadatelstvo)
-					if imgui.CollapsingHeader(u8'Уголовный кодекс(Ук.РФ)') then
+				imgui.Begin(u8'Р—Р°РєРѕРЅРѕРґР°С‚РµР»СЊСЃС‚РІРѕ Р Р¤', show_zakonadatelstvo)
+					if imgui.CollapsingHeader(u8'РЈРіРѕР»РѕРІРЅС‹Р№ РєРѕРґРµРєСЃ(РЈРє.Р Р¤)') then
 						ImFileParse('\\gta rp wiki\\gtarp\\gos_org\\zakon\\ykrf.txt', nil, nil, 'ykrfpat')
 					end
-					if imgui.CollapsingHeader(u8'Федеральное постановление(ФП)') then
+					if imgui.CollapsingHeader(u8'Р¤РµРґРµСЂР°Р»СЊРЅРѕРµ РїРѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ(Р¤Рџ)') then
 						ImFileParse('\\gta rp wiki\\gtarp\\gos_org\\zakon\\fp.txt', nil, nil, 'fppat')
 					end
-					if imgui.CollapsingHeader(u8'КоАП') then
+					if imgui.CollapsingHeader(u8'РљРѕРђРџ') then
 						ImFileParse('\\gta rp wiki\\gtarp\\gos_org\\zakon\\koap.txt', nil, nil, 'koappat')
 					end
 				imgui.End()
@@ -1104,7 +1104,7 @@ function imgui.OnDrawFrame()
 				imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 				imgui.SetNextWindowSize(imgui.ImVec2(730, 500), imgui.Cond.FirstUseEver)
 				-- imgui.SetNextWindowSize(imgui.ImVec2(460, 500), imgui.Cond.FirstUseEver)
-				imgui.Begin(u8'Правила редактирования объявлений(П.Р.О)', show_pro)
+				imgui.Begin(u8'РџСЂР°РІРёР»Р° СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РѕР±СЉСЏРІР»РµРЅРёР№(Рџ.Р .Рћ)', show_pro)
 					ImFileParse('\\gta rp wiki\\gtarp\\gos_org\\pro.txt', nil, nil, 'propat')
 				imgui.End()
 			end
@@ -1112,8 +1112,8 @@ function imgui.OnDrawFrame()
 				local sw, sh = getScreenResolution()
 				imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 				imgui.SetNextWindowSize(imgui.ImVec2(650, 550), imgui.Cond.FirstUseEver)
-				imgui.Begin(u8"Правила государственной волны", show_prav_gos_volnu)
-					-- imgui.Text(u8'Привет, мир!');
+				imgui.Begin(u8"РџСЂР°РІРёР»Р° РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕР№ РІРѕР»РЅС‹", show_prav_gos_volnu)
+					-- imgui.Text(u8'РџСЂРёРІРµС‚, РјРёСЂ!');
 					-- imgui.Text(u8"",...)
 					-- imgui.Text(" ")
 					GosVolna()
@@ -1121,7 +1121,7 @@ function imgui.OnDrawFrame()
 			end
 		end
 	end
-	-- Оверлей --
+	-- РћРІРµСЂР»РµР№ --
 	if show_overlay.v == true and show_overlay_fps.v or show_overlay.v == true and show_overlay_koor.v or show_overlay.v == true and show_overlay_healh.v or show_overlay.v == true and show_overlay_time.v then
 		-- local sw, sh = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(SetStyle.Kor_OverLay.x + 20, SetStyle.Kor_OverLay.y + 20), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
@@ -1133,7 +1133,7 @@ function imgui.OnDrawFrame()
 			end
 			if show_overlay_koor.v then
 				local positionX, positionY, positionZ = getCharCoordinates(PLAYER_PED)
-				imgui.Text(string.format(u8'Координаты: X - "%d"; Y - "%d"; Z - "%d";', positionX, positionY, positionZ))
+				imgui.Text(string.format(u8'РљРѕРѕСЂРґРёРЅР°С‚С‹: X - "%d"; Y - "%d"; Z - "%d";', positionX, positionY, positionZ))
 			end
 			if show_overlay_healh.v then
 				-- getCharHealth(Ped ped)
@@ -1145,7 +1145,7 @@ function imgui.OnDrawFrame()
 				end
 			end
 			if show_overlay_time.v then
-				imgui.Text(string.format(u8'Время - %s:%s | Дата - %s', os.date("%H", os.time()), os.date("%M", os.time()), os.date("%x")))
+				imgui.Text(string.format(u8'Р’СЂРµРјСЏ - %s:%s | Р”Р°С‚Р° - %s', os.date("%H", os.time()), os.date("%M", os.time()), os.date("%x")))
 			end
 			local pos = imgui.GetWindowPos()
 			SetStyle.Kor_OverLay.x = pos.x
@@ -1155,11 +1155,11 @@ function imgui.OnDrawFrame()
 	end
 	-- end --
 
-	-- Обнавление --
+	-- РћР±РЅР°РІР»РµРЅРёРµ --
 	if show_obnavlen_yest.v then
 		local sw, sh = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-		imgui.Begin(u8'Обновление', show_obnavlen_yest, imgui.WindowFlags.AlwaysAutoResize)
+		imgui.Begin(u8'РћР±РЅРѕРІР»РµРЅРёРµ', show_obnavlen_yest, imgui.WindowFlags.AlwaysAutoResize)
 			obnavlenue_yes()
 		imgui.End()
 	end
@@ -1167,7 +1167,7 @@ function imgui.OnDrawFrame()
 	if show_obnavlen_zav.v then
 		local sw, sh = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-		imgui.Begin(u8'Обновление', show_obnavlen_zav, imgui.WindowFlags.AlwaysAutoResize)
+		imgui.Begin(u8'РћР±РЅРѕРІР»РµРЅРёРµ', show_obnavlen_zav, imgui.WindowFlags.AlwaysAutoResize)
 			obnavlenue_zav()
 		imgui.End()
 	end
@@ -1175,28 +1175,28 @@ function imgui.OnDrawFrame()
 end
 
 function obnavlenue_yes()
-	imgui.Text(u8"Вышло обновление скрипта GTA RP Wiki\nЧтобы продолжить, нажмите на одну из кнопок: Да/Нет.\n")
-	imgui.Text(u8'Во время обнавления возможны вылеты\nи зависания игры. Если игра зависнет более\n5 минут, закрывайте игру и заходите в неё обратно.\n')
+	imgui.Text(u8"Р’С‹С€Р»Рѕ РѕР±РЅРѕРІР»РµРЅРёРµ СЃРєСЂРёРїС‚Р° GTA RP Wiki\nР§С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ, РЅР°Р¶РјРёС‚Рµ РЅР° РѕРґРЅСѓ РёР· РєРЅРѕРїРѕРє: Р”Р°/РќРµС‚.\n")
+	imgui.Text(u8'Р’Рѕ РІСЂРµРјСЏ РѕР±РЅР°РІР»РµРЅРёСЏ РІРѕР·РјРѕР¶РЅС‹ РІС‹Р»РµС‚С‹\nРё Р·Р°РІРёСЃР°РЅРёСЏ РёРіСЂС‹. Р•СЃР»Рё РёРіСЂР° Р·Р°РІРёСЃРЅРµС‚ Р±РѕР»РµРµ\n5 РјРёРЅСѓС‚, Р·Р°РєСЂС‹РІР°Р№С‚Рµ РёРіСЂСѓ Рё Р·Р°С…РѕРґРёС‚Рµ РІ РЅРµС‘ РѕР±СЂР°С‚РЅРѕ.\n')
 	imgui.Text(string.format(u8'%s', updateIni.info.infa_update)) -- updateIni.info.vers
-	if imgui.Button(u8"Да", imgui.ImVec2(150.0, 50.0)) then 
+	if imgui.Button(u8"Р”Р°", imgui.ImVec2(150.0, 50.0)) then 
 		os.remove(update_path)
 		update_state = true
 		show_obnavlen_yest.v = not show_obnavlen_yest.v
 	end
 	imgui.SameLine()
-	if imgui.Button(u8"Нет", imgui.ImVec2(150.0, 50.0)) then 
+	if imgui.Button(u8"РќРµС‚", imgui.ImVec2(150.0, 50.0)) then 
 		os.remove(update_path)
 		show_obnavlen_yest.v = not show_obnavlen_yest.v
 	end
 end
 
 function obnavlenue_zav()
-	imgui.Text(u8"Скрипт обнавляется! Приятной игры на GTA RolePlay\n(c) Tim4ukys")
+	imgui.Text(u8"РЎРєСЂРёРїС‚ РѕР±РЅР°РІР»СЏРµС‚СЃСЏ! РџСЂРёСЏС‚РЅРѕР№ РёРіСЂС‹ РЅР° GTA RolePlay\n(c) Tim4ukys")
 end
 
 function main()
 	-- local anotherIni = inicfg.load(nil, "example_another_config")
-	-- если файл был успешно загружен
+	-- РµСЃР»Рё С„Р°Р№Р» Р±С‹Р» СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
 	-- if anotherIni ~= nil then
 		-- if
 			
@@ -1251,7 +1251,7 @@ function main()
 	lua_thread.create(strobe)
 	lua_thread.create(strobeText)
 
-	--Обновление--
+	--РћР±РЅРѕРІР»РµРЅРёРµ--
 
 	-- local script_vers = 1
 	-- local script_vers_text = "1.00"
@@ -1287,7 +1287,7 @@ function main()
 		if show_obnavlen_yest.v then imgui.ShowCursor = show_obnavlen_yest.v end
 		wait(0)
 
-		--Обновление--
+		--РћР±РЅРѕРІР»РµРЅРёРµ--
 		if update_state then 
 			downloadUrlToFile(script_url, script_path, function(id, status)
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
@@ -1300,7 +1300,7 @@ function main()
 		end
 		------end-----
 
-		---------СТРОБОСКОПЫ-----------
+		---------РЎРўР РћР‘РћРЎРљРћРџР«-----------
 		if isCharInAnyCar(PLAYER_PED) and strob_state == true then
 		
 			local car = storeCarCharIsInNoSave(PLAYER_PED)
@@ -1336,7 +1336,7 @@ end
 
 
 
----------СТРОБОСКОПЫ-----------
+---------РЎРўР РћР‘РћРЎРљРћРџР«-----------
 function stroboscopes(adress, ptr, _1, _2, _3, _4)
 	if not isCharInAnyCar(PLAYER_PED) then return end
 	
@@ -1510,7 +1510,7 @@ end
 
 
 function ImFileParse(text_path, img_sz, img_table, pattern)
-	imgui.InputText(u8'Поиск', keyword)
+	imgui.InputText(u8'РџРѕРёСЃРє', keyword)
 	for line in io.lines(getWorkingDirectory()..text_path) do
 		if string.find(line, keyword.v) then
 			local img_id = string.match(line, pattern)
@@ -1550,306 +1550,306 @@ function GosVolna()
 	local ImVec4 = imgui.ImVec4
 
 				
-	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'Основные правила:')
-	imgui.Text(u8"1. Интервал между занятием своей гос. волны после окончания")
-	imgui.Text(u8"одного набора - 30 минут.")
+	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'РћСЃРЅРѕРІРЅС‹Рµ РїСЂР°РІРёР»Р°:')
+	imgui.Text(u8"1. РРЅС‚РµСЂРІР°Р» РјРµР¶РґСѓ Р·Р°РЅСЏС‚РёРµРј СЃРІРѕРµР№ РіРѕСЃ. РІРѕР»РЅС‹ РїРѕСЃР»Рµ РѕРєРѕРЅС‡Р°РЅРёСЏ")
+	imgui.Text(u8"РѕРґРЅРѕРіРѕ РЅР°Р±РѕСЂР° - 30 РјРёРЅСѓС‚.")
 
-	imgui.Text(u8"2. Создавать собеседование")
+	imgui.Text(u8"2. РЎРѕР·РґР°РІР°С‚СЊ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ")
 	imgui.SameLine()        
 	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'( /startvacancy )')
 	imgui.SameLine()
-	imgui.Text(u8'за 10 минут до начала,')
-	imgui.Text(u8"максимум 60 минут.")
+	imgui.Text(u8'Р·Р° 10 РјРёРЅСѓС‚ РґРѕ РЅР°С‡Р°Р»Р°,')
+	imgui.Text(u8"РјР°РєСЃРёРјСѓРј 60 РјРёРЅСѓС‚.")
 
-	imgui.Text(u8"3. Собеседование проводить")
+	imgui.Text(u8"3. РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ РїСЂРѕРІРѕРґРёС‚СЊ")
 	imgui.SameLine()
-	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'только в чётное время 10, 20, 30, 40, 50.')
+	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'С‚РѕР»СЊРєРѕ РІ С‡С‘С‚РЅРѕРµ РІСЂРµРјСЏ 10, 20, 30, 40, 50.')
 
-	imgui.Text(u8"4. Собеседование в организацию")
+	imgui.Text(u8"4. РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ РІ РѕСЂРіР°РЅРёР·Р°С†РёСЋ")
 	imgui.SameLine()
-	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'строго 30 минут.')
+	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'СЃС‚СЂРѕРіРѕ 30 РјРёРЅСѓС‚.')
 
-	imgui.Text(u8"5. Необходимо указывать где проходит собеседование/призыв, критерии.")
-	imgui.Text(u8"6. Необходимо указывать сколько будет длиться собеседование/призыв.")
+	imgui.Text(u8"5. РќРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·С‹РІР°С‚СЊ РіРґРµ РїСЂРѕС…РѕРґРёС‚ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ/РїСЂРёР·С‹РІ, РєСЂРёС‚РµСЂРёРё.")
+	imgui.Text(u8"6. РќРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·С‹РІР°С‚СЊ СЃРєРѕР»СЊРєРѕ Р±СѓРґРµС‚ РґР»РёС‚СЊСЃСЏ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ/РїСЂРёР·С‹РІ.")
 
-	imgui.Text(u8"7. Государственная волна доступна без ограничений на проведение наборов.")
-	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'Для отчёта строго с')
+	imgui.Text(u8"7. Р“РѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅР°СЏ РІРѕР»РЅР° РґРѕСЃС‚СѓРїРЅР° Р±РµР· РѕРіСЂР°РЅРёС‡РµРЅРёР№ РЅР° РїСЂРѕРІРµРґРµРЅРёРµ РЅР°Р±РѕСЂРѕРІ.")
+	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'Р”Р»СЏ РѕС‚С‡С‘С‚Р° СЃС‚СЂРѕРіРѕ СЃ')
 	imgui.SameLine()		
-	imgui.TextColored(ImVec4(0.0, 0.0, 0.7, 1.0), u8'08:00 до 23:00.')
+	imgui.TextColored(ImVec4(0.0, 0.0, 0.7, 1.0), u8'08:00 РґРѕ 23:00.')
 	imgui.SameLine()
-	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'Раньше/позже приняты в наборах не будут.')
-	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8'(Исключение : после 23:00 можно ТОЛЬКО закончить собеседование)')
+	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'Р Р°РЅСЊС€Рµ/РїРѕР·Р¶Рµ РїСЂРёРЅСЏС‚С‹ РІ РЅР°Р±РѕСЂР°С… РЅРµ Р±СѓРґСѓС‚.')
+	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8'(РСЃРєР»СЋС‡РµРЅРёРµ : РїРѕСЃР»Рµ 23:00 РјРѕР¶РЅРѕ РўРћР›Р¬РљРћ Р·Р°РєРѕРЅС‡РёС‚СЊ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ)')
 
-	imgui.Text(u8'8. Гос волна проводится')
+	imgui.Text(u8'8. Р“РѕСЃ РІРѕР»РЅР° РїСЂРѕРІРѕРґРёС‚СЃСЏ')
 	imgui.SameLine()
-	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'только')
+	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'С‚РѕР»СЊРєРѕ')
 	imgui.SameLine()
-	imgui.Text(u8'в здании своей фракции/на месте проведения набора/призыва.')
+	imgui.Text(u8'РІ Р·РґР°РЅРёРё СЃРІРѕРµР№ С„СЂР°РєС†РёРё/РЅР° РјРµСЃС‚Рµ РїСЂРѕРІРµРґРµРЅРёСЏ РЅР°Р±РѕСЂР°/РїСЂРёР·С‹РІР°.')
 
-	imgui.Text(u8'9. +-1 минута от начала собеседования по объявлению в /s собеседование')
-	imgui.Text(u8'начато и системного окончания.')
+	imgui.Text(u8'9. +-1 РјРёРЅСѓС‚Р° РѕС‚ РЅР°С‡Р°Р»Р° СЃРѕР±РµСЃРµРґРѕРІР°РЅРёСЏ РїРѕ РѕР±СЉСЏРІР»РµРЅРёСЋ РІ /s СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ')
+	imgui.Text(u8'РЅР°С‡Р°С‚Рѕ Рё СЃРёСЃС‚РµРјРЅРѕРіРѕ РѕРєРѕРЅС‡Р°РЅРёСЏ.')
 
-	imgui.Text(u8'10. С момента окончания собеседования должно пройти 30 минут, чтобы')
-	imgui.Text(u8'занимать новое собеседование (')
+	imgui.Text(u8'10. РЎ РјРѕРјРµРЅС‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёСЏ РґРѕР»Р¶РЅРѕ РїСЂРѕР№С‚Рё 30 РјРёРЅСѓС‚, С‡С‚РѕР±С‹')
+	imgui.Text(u8'Р·Р°РЅРёРјР°С‚СЊ РЅРѕРІРѕРµ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ (')
 	imgui.SameLine()
-	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'в /startvacancy')
+	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'РІ /startvacancy')
 	imgui.SameLine()
 	imgui.Text(u8').')
 
 	imgui.Text(u8' ')
 	imgui.Text(u8' ')
 
-	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'Правила занятия государственной волны:')
+	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'РџСЂР°РІРёР»Р° Р·Р°РЅСЏС‚РёСЏ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕР№ РІРѕР»РЅС‹:')
 
-	imgui.Text(u8"1. Открыли")
+	imgui.Text(u8"1. РћС‚РєСЂС‹Р»Рё")
 	imgui.SameLine()
 	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'/vacancy')
 	imgui.SameLine()
-	imgui.Text(u8'посмотрели на какое время свободно собеседование.')
+	imgui.Text(u8'РїРѕСЃРјРѕС‚СЂРµР»Рё РЅР° РєР°РєРѕРµ РІСЂРµРјСЏ СЃРІРѕР±РѕРґРЅРѕ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ.')
 	imgui.Image(image_windows_gos_volna_1, imgui.ImVec2(372, 112));
 
-	imgui.Text(u8'2. После чего открыли')
+	imgui.Text(u8'2. РџРѕСЃР»Рµ С‡РµРіРѕ РѕС‚РєСЂС‹Р»Рё')
 	imgui.SameLine()
 	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'/startvacancy')
 	imgui.SameLine()
-	imgui.Text(u8'Вписали критерии,')
-	imgui.Text(u8'место проведения, и время.')
+	imgui.Text(u8'Р’РїРёСЃР°Р»Рё РєСЂРёС‚РµСЂРёРё,')
+	imgui.Text(u8'РјРµСЃС‚Рѕ РїСЂРѕРІРµРґРµРЅРёСЏ, Рё РІСЂРµРјСЏ.')
 	imgui.Image(image_windows_gos_volna_2, imgui.ImVec2(372, 116))
 
-	imgui.Text(u8'3. После чего нажали "Создать собеседование" и сделали скрин с /time')
-	imgui.Text(u8'4. Прописываем команду /vacancy и /time + F8')
-	imgui.Text(u8'5. Когда пришло время занятия гос.волны вы пишите /s Собеседование')
-	imgui.Text(u8'начато /time + F8')
-	imgui.Text(u8'6. По окончанию собеседования вы скрините системное окончание /time + F8')
+	imgui.Text(u8'3. РџРѕСЃР»Рµ С‡РµРіРѕ РЅР°Р¶Р°Р»Рё "РЎРѕР·РґР°С‚СЊ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ" Рё СЃРґРµР»Р°Р»Рё СЃРєСЂРёРЅ СЃ /time')
+	imgui.Text(u8'4. РџСЂРѕРїРёСЃС‹РІР°РµРј РєРѕРјР°РЅРґСѓ /vacancy Рё /time + F8')
+	imgui.Text(u8'5. РљРѕРіРґР° РїСЂРёС€Р»Рѕ РІСЂРµРјСЏ Р·Р°РЅСЏС‚РёСЏ РіРѕСЃ.РІРѕР»РЅС‹ РІС‹ РїРёС€РёС‚Рµ /s РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ')
+	imgui.Text(u8'РЅР°С‡Р°С‚Рѕ /time + F8')
+	imgui.Text(u8'6. РџРѕ РѕРєРѕРЅС‡Р°РЅРёСЋ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёСЏ РІС‹ СЃРєСЂРёРЅРёС‚Рµ СЃРёСЃС‚РµРјРЅРѕРµ РѕРєРѕРЅС‡Р°РЅРёРµ /time + F8')
 
 	imgui.Text(u8' ')
 	imgui.Text(u8' ')
 
-	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'Важно! За что вы можете быть наказаны.')
-	imgui.Text(u8'1) Некорректное создание собеседования, ошибки в написании.')
-	imgui.Text(u8'2) Не правильно указаны критерии, время начала/завершения/места.')
-	imgui.Text(u8'3) АФК/Офф на активном собеседовании, отсутствие вас на активном')
-	imgui.Text(u8'собеседовании.')
+	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'Р’Р°Р¶РЅРѕ! Р—Р° С‡С‚Рѕ РІС‹ РјРѕР¶РµС‚Рµ Р±С‹С‚СЊ РЅР°РєР°Р·Р°РЅС‹.')
+	imgui.Text(u8'1) РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ СЃРѕР·РґР°РЅРёРµ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёСЏ, РѕС€РёР±РєРё РІ РЅР°РїРёСЃР°РЅРёРё.')
+	imgui.Text(u8'2) РќРµ РїСЂР°РІРёР»СЊРЅРѕ СѓРєР°Р·Р°РЅС‹ РєСЂРёС‚РµСЂРёРё, РІСЂРµРјСЏ РЅР°С‡Р°Р»Р°/Р·Р°РІРµСЂС€РµРЅРёСЏ/РјРµСЃС‚Р°.')
+	imgui.Text(u8'3) РђР¤Рљ/РћС„С„ РЅР° Р°РєС‚РёРІРЅРѕРј СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРё, РѕС‚СЃСѓС‚СЃС‚РІРёРµ РІР°СЃ РЅР° Р°РєС‚РёРІРЅРѕРј')
+	imgui.Text(u8'СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРё.')
 
 	imgui.Text(u8' ')
 	imgui.Text(u8' ')
 
-	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'Правила подачи /gov новостей - для ЛИДЕРОВ.')
-	imgui.Text(u8'1) Перед подачи /gov новостей проверьте заполнили ли вы все')
-	imgui.Text(u8'правильно, нет ли у вас грамматических ошибок.')
-	imgui.Text(u8'2) В подачи /gov новостей, доступно только 5 строк (с 1 по 5), шестая')
-	imgui.Text(u8'не участвует в подачах.')
-	imgui.Text(u8'3) Подавать /gov можно 1 фракции один раз в 30 минут, раньше будет')
-	imgui.Text(u8'заявка отклонена.')
-	imgui.Text(u8'4) В подачах /gov разрешено подавать ТОЛЬКО пиар заявлений на должности.')
+	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'РџСЂР°РІРёР»Р° РїРѕРґР°С‡Рё /gov РЅРѕРІРѕСЃС‚РµР№ - РґР»СЏ Р›РР”Р•Р РћР’.')
+	imgui.Text(u8'1) РџРµСЂРµРґ РїРѕРґР°С‡Рё /gov РЅРѕРІРѕСЃС‚РµР№ РїСЂРѕРІРµСЂСЊС‚Рµ Р·Р°РїРѕР»РЅРёР»Рё Р»Рё РІС‹ РІСЃРµ')
+	imgui.Text(u8'РїСЂР°РІРёР»СЊРЅРѕ, РЅРµС‚ Р»Рё Сѓ РІР°СЃ РіСЂР°РјРјР°С‚РёС‡РµСЃРєРёС… РѕС€РёР±РѕРє.')
+	imgui.Text(u8'2) Р’ РїРѕРґР°С‡Рё /gov РЅРѕРІРѕСЃС‚РµР№, РґРѕСЃС‚СѓРїРЅРѕ С‚РѕР»СЊРєРѕ 5 СЃС‚СЂРѕРє (СЃ 1 РїРѕ 5), С€РµСЃС‚Р°СЏ')
+	imgui.Text(u8'РЅРµ СѓС‡Р°СЃС‚РІСѓРµС‚ РІ РїРѕРґР°С‡Р°С….')
+	imgui.Text(u8'3) РџРѕРґР°РІР°С‚СЊ /gov РјРѕР¶РЅРѕ 1 С„СЂР°РєС†РёРё РѕРґРёРЅ СЂР°Р· РІ 30 РјРёРЅСѓС‚, СЂР°РЅСЊС€Рµ Р±СѓРґРµС‚')
+	imgui.Text(u8'Р·Р°СЏРІРєР° РѕС‚РєР»РѕРЅРµРЅР°.')
+	imgui.Text(u8'4) Р’ РїРѕРґР°С‡Р°С… /gov СЂР°Р·СЂРµС€РµРЅРѕ РїРѕРґР°РІР°С‚СЊ РўРћР›Р¬РљРћ РїРёР°СЂ Р·Р°СЏРІР»РµРЅРёР№ РЅР° РґРѕР»Р¶РЅРѕСЃС‚Рё.')
 	imgui.Text(u8'')
-	imgui.Text(u8'Правильный пример подачи /gov новостей:')
+	imgui.Text(u8'РџСЂР°РІРёР»СЊРЅС‹Р№ РїСЂРёРјРµСЂ РїРѕРґР°С‡Рё /gov РЅРѕРІРѕСЃС‚РµР№:')
 	imgui.Image(image_windows_gos_volna_3, imgui.ImVec2(512, 256))
 
 	imgui.Text(u8' ')
 	imgui.Text(u8' ')
 
-	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'Правила эфиров СМИ')
-	imgui.Text(u8'1. Проверить раскладку клавиатуры, чтобы не было ошибок (??????)')
-	imgui.Text(u8'2. Обязательно использовать биндер (AutoHotKey])')
-	imgui.Text(u8'3. Собеседование в организацию строго 30 минут.')
-	imgui.Text(u8'4. Обязательно напомнить о собеседовании спустя 15 минут после')
-	imgui.Text(u8'начала собеседования.')
-	imgui.Text(u8'5. Окончание собеседование идет через эфир!')
-	imgui.Text(u8'6. Необходимо указывать сколько будет длиться собеседование')
-	imgui.Text(u8'7. Государственная волна доступна без ограничений на проведение наборов.')
-	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'Для отчёта строго с 08:00 до 23:00. Раньше/позже приняты в наборах не будут')
-	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8'(Исключение : после 23:00 можно ТОЛЬКО закончить собеседование)')
-	imgui.Text(u8'8. Опоздание подачи гос.волны не наказывается, если гос.волна')
-	imgui.Text(u8'подана на +-1 минуту от занятого времени')
-	imgui.Text(u8'9. Если у вас случилась какая то проблема в эфире то вы обязаны')
-	imgui.Text(u8'написать Тех.Неполадки.')
-	imgui.Text(u8'10. Эфир подается только в здании своей фракции/на месте')
-	imgui.Text(u8'проведения набора (Парковка/Офис)')
-	imgui.Text(u8'11. После окончания одного собеседование, следующее можно будет')
-	imgui.Text(u8'занять минимум через 30 минут.')
-	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'Пример:')
+	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'РџСЂР°РІРёР»Р° СЌС„РёСЂРѕРІ РЎРњР')
+	imgui.Text(u8'1. РџСЂРѕРІРµСЂРёС‚СЊ СЂР°СЃРєР»Р°РґРєСѓ РєР»Р°РІРёР°С‚СѓСЂС‹, С‡С‚РѕР±С‹ РЅРµ Р±С‹Р»Рѕ РѕС€РёР±РѕРє (??????)')
+	imgui.Text(u8'2. РћР±СЏР·Р°С‚РµР»СЊРЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р±РёРЅРґРµСЂ (AutoHotKey])')
+	imgui.Text(u8'3. РЎРѕР±РµСЃРµРґРѕРІР°РЅРёРµ РІ РѕСЂРіР°РЅРёР·Р°С†РёСЋ СЃС‚СЂРѕРіРѕ 30 РјРёРЅСѓС‚.')
+	imgui.Text(u8'4. РћР±СЏР·Р°С‚РµР»СЊРЅРѕ РЅР°РїРѕРјРЅРёС‚СЊ Рѕ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРё СЃРїСѓСЃС‚СЏ 15 РјРёРЅСѓС‚ РїРѕСЃР»Рµ')
+	imgui.Text(u8'РЅР°С‡Р°Р»Р° СЃРѕР±РµСЃРµРґРѕРІР°РЅРёСЏ.')
+	imgui.Text(u8'5. РћРєРѕРЅС‡Р°РЅРёРµ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ РёРґРµС‚ С‡РµСЂРµР· СЌС„РёСЂ!')
+	imgui.Text(u8'6. РќРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·С‹РІР°С‚СЊ СЃРєРѕР»СЊРєРѕ Р±СѓРґРµС‚ РґР»РёС‚СЊСЃСЏ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ')
+	imgui.Text(u8'7. Р“РѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅР°СЏ РІРѕР»РЅР° РґРѕСЃС‚СѓРїРЅР° Р±РµР· РѕРіСЂР°РЅРёС‡РµРЅРёР№ РЅР° РїСЂРѕРІРµРґРµРЅРёРµ РЅР°Р±РѕСЂРѕРІ.')
+	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'Р”Р»СЏ РѕС‚С‡С‘С‚Р° СЃС‚СЂРѕРіРѕ СЃ 08:00 РґРѕ 23:00. Р Р°РЅСЊС€Рµ/РїРѕР·Р¶Рµ РїСЂРёРЅСЏС‚С‹ РІ РЅР°Р±РѕСЂР°С… РЅРµ Р±СѓРґСѓС‚')
+	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8'(РСЃРєР»СЋС‡РµРЅРёРµ : РїРѕСЃР»Рµ 23:00 РјРѕР¶РЅРѕ РўРћР›Р¬РљРћ Р·Р°РєРѕРЅС‡РёС‚СЊ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ)')
+	imgui.Text(u8'8. РћРїРѕР·РґР°РЅРёРµ РїРѕРґР°С‡Рё РіРѕСЃ.РІРѕР»РЅС‹ РЅРµ РЅР°РєР°Р·С‹РІР°РµС‚СЃСЏ, РµСЃР»Рё РіРѕСЃ.РІРѕР»РЅР°')
+	imgui.Text(u8'РїРѕРґР°РЅР° РЅР° +-1 РјРёРЅСѓС‚Сѓ РѕС‚ Р·Р°РЅСЏС‚РѕРіРѕ РІСЂРµРјРµРЅРё')
+	imgui.Text(u8'9. Р•СЃР»Рё Сѓ РІР°СЃ СЃР»СѓС‡РёР»Р°СЃСЊ РєР°РєР°СЏ С‚Рѕ РїСЂРѕР±Р»РµРјР° РІ СЌС„РёСЂРµ С‚Рѕ РІС‹ РѕР±СЏР·Р°РЅС‹')
+	imgui.Text(u8'РЅР°РїРёСЃР°С‚СЊ РўРµС….РќРµРїРѕР»Р°РґРєРё.')
+	imgui.Text(u8'10. Р­С„РёСЂ РїРѕРґР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ РІ Р·РґР°РЅРёРё СЃРІРѕРµР№ С„СЂР°РєС†РёРё/РЅР° РјРµСЃС‚Рµ')
+	imgui.Text(u8'РїСЂРѕРІРµРґРµРЅРёСЏ РЅР°Р±РѕСЂР° (РџР°СЂРєРѕРІРєР°/РћС„РёСЃ)')
+	imgui.Text(u8'11. РџРѕСЃР»Рµ РѕРєРѕРЅС‡Р°РЅРёСЏ РѕРґРЅРѕРіРѕ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ, СЃР»РµРґСѓСЋС‰РµРµ РјРѕР¶РЅРѕ Р±СѓРґРµС‚')
+	imgui.Text(u8'Р·Р°РЅСЏС‚СЊ РјРёРЅРёРјСѓРј С‡РµСЂРµР· 30 РјРёРЅСѓС‚.')
+	imgui.TextColored(ImVec4(0.7, 0.0, 0.0, 1.0), u8'РџСЂРёРјРµСЂ:')
 	imgui.SameLine() 		
-	imgui.TextColored(ImVec4(0.0, 0.4, 0.0, 1.0), u8'Закончился набор в 11:30, в 12:00 могу начать новое собеседование.')
+	imgui.TextColored(ImVec4(0.0, 0.4, 0.0, 1.0), u8'Р—Р°РєРѕРЅС‡РёР»СЃСЏ РЅР°Р±РѕСЂ РІ 11:30, РІ 12:00 РјРѕРіСѓ РЅР°С‡Р°С‚СЊ РЅРѕРІРѕРµ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ.')
 	imgui.Text(u8' ')
 	imgui.Separator()
 	imgui.Text(u8' ')
-	imgui.Text(u8'- За нарушение правил подачи эфиров лидером или его заместителем')
-	imgui.Text(u8'выдается бан чата.')
-	imgui.Text(u8'- За неоднократное нарушение правил подачи')
-	imgui.Text(u8'эфиров - предупреждение/выговор лидеру.')
-	imgui.Text(u8'- Подавать в эфире об начале собеседование нужно в ..:00, ..:10,')
+	imgui.Text(u8'- Р—Р° РЅР°СЂСѓС€РµРЅРёРµ РїСЂР°РІРёР» РїРѕРґР°С‡Рё СЌС„РёСЂРѕРІ Р»РёРґРµСЂРѕРј РёР»Рё РµРіРѕ Р·Р°РјРµСЃС‚РёС‚РµР»РµРј')
+	imgui.Text(u8'РІС‹РґР°РµС‚СЃСЏ Р±Р°РЅ С‡Р°С‚Р°.')
+	imgui.Text(u8'- Р—Р° РЅРµРѕРґРЅРѕРєСЂР°С‚РЅРѕРµ РЅР°СЂСѓС€РµРЅРёРµ РїСЂР°РІРёР» РїРѕРґР°С‡Рё')
+	imgui.Text(u8'СЌС„РёСЂРѕРІ - РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ/РІС‹РіРѕРІРѕСЂ Р»РёРґРµСЂСѓ.')
+	imgui.Text(u8'- РџРѕРґР°РІР°С‚СЊ РІ СЌС„РёСЂРµ РѕР± РЅР°С‡Р°Р»Рµ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРµ РЅСѓР¶РЅРѕ РІ ..:00, ..:10,')
 	imgui.Text(u8'..:20, ..:30, ..:40, ..:50')
-	imgui.Text(u8'- Напоминание об собеседовании собеседования -..:05, ..:15, ..:25,')
+	imgui.Text(u8'- РќР°РїРѕРјРёРЅР°РЅРёРµ РѕР± СЃРѕР±РµСЃРµРґРѕРІР°РЅРёРё СЃРѕР±РµСЃРµРґРѕРІР°РЅРёСЏ -..:05, ..:15, ..:25,')
 	imgui.Text(u8'..:35, ..:45, ..:55.')
-	imgui.Text(u8'- За нарушение данных правил - лидер будет наказан')
-	imgui.Text(u8'предупреждением/выговором.')
+	imgui.Text(u8'- Р—Р° РЅР°СЂСѓС€РµРЅРёРµ РґР°РЅРЅС‹С… РїСЂР°РІРёР» - Р»РёРґРµСЂ Р±СѓРґРµС‚ РЅР°РєР°Р·Р°РЅ')
+	imgui.Text(u8'РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРј/РІС‹РіРѕРІРѕСЂРѕРј.')
 
 	imgui.Text(u8' ')
-	imgui.TextColored(ImVec4(0.0, 0.7, 0.0, 1.0), u8'РАЗРЕШЕНО В ЭФИРЕ:')
-	imgui.Text(u8'1. Объявления о начале, продолжении собеседования также')
-	imgui.Text(u8'окончание собеседования')
-	imgui.Text(u8'2. Проведение каких либо мероприятий, акций от организации: (Анаграммы, ')
-	imgui.Text(u8'приветы и поздравления, страны и столицы, и т.д), объявления')
-	imgui.Text(u8'о происходящем событии, работы гос. организации.')
-	imgui.Text(u8'3. ВИП Рекламы (Бизнесов, Продажи, Покупки и т.д)')
+	imgui.TextColored(ImVec4(0.0, 0.7, 0.0, 1.0), u8'Р РђР—Р Р•РЁР•РќРћ Р’ Р­Р¤РР Р•:')
+	imgui.Text(u8'1. РћР±СЉСЏРІР»РµРЅРёСЏ Рѕ РЅР°С‡Р°Р»Рµ, РїСЂРѕРґРѕР»Р¶РµРЅРёРё СЃРѕР±РµСЃРµРґРѕРІР°РЅРёСЏ С‚Р°РєР¶Рµ')
+	imgui.Text(u8'РѕРєРѕРЅС‡Р°РЅРёРµ СЃРѕР±РµСЃРµРґРѕРІР°РЅРёСЏ')
+	imgui.Text(u8'2. РџСЂРѕРІРµРґРµРЅРёРµ РєР°РєРёС… Р»РёР±Рѕ РјРµСЂРѕРїСЂРёСЏС‚РёР№, Р°РєС†РёР№ РѕС‚ РѕСЂРіР°РЅРёР·Р°С†РёРё: (РђРЅР°РіСЂР°РјРјС‹, ')
+	imgui.Text(u8'РїСЂРёРІРµС‚С‹ Рё РїРѕР·РґСЂР°РІР»РµРЅРёСЏ, СЃС‚СЂР°РЅС‹ Рё СЃС‚РѕР»РёС†С‹, Рё С‚.Рґ), РѕР±СЉСЏРІР»РµРЅРёСЏ')
+	imgui.Text(u8'Рѕ РїСЂРѕРёСЃС…РѕРґСЏС‰РµРј СЃРѕР±С‹С‚РёРё, СЂР°Р±РѕС‚С‹ РіРѕСЃ. РѕСЂРіР°РЅРёР·Р°С†РёРё.')
+	imgui.Text(u8'3. Р’РРџ Р РµРєР»Р°РјС‹ (Р‘РёР·РЅРµСЃРѕРІ, РџСЂРѕРґР°Р¶Рё, РџРѕРєСѓРїРєРё Рё С‚.Рґ)')
 
 	imgui.Text(u8' ')
-	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'ЗАПРЕЩЕНО В ЭФИРЕ:')
-	imgui.Text(u8'1. Оскорбления')
-	imgui.Text(u8'2. МГ, Транслит, капс')
-	imgui.Text(u8'3. Бред в Эфире.')
-	imgui.Text(u8'4. Запрещён сбор денег в эфире (поиск спонсоров).')
-	imgui.Text(u8'5. АФК или неявка во время набора')
+	imgui.TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), u8'Р—РђРџР Р•Р©Р•РќРћ Р’ Р­Р¤РР Р•:')
+	imgui.Text(u8'1. РћСЃРєРѕСЂР±Р»РµРЅРёСЏ')
+	imgui.Text(u8'2. РњР“, РўСЂР°РЅСЃР»РёС‚, РєР°РїСЃ')
+	imgui.Text(u8'3. Р‘СЂРµРґ РІ Р­С„РёСЂРµ.')
+	imgui.Text(u8'4. Р—Р°РїСЂРµС‰С‘РЅ СЃР±РѕСЂ РґРµРЅРµРі РІ СЌС„РёСЂРµ (РїРѕРёСЃРє СЃРїРѕРЅСЃРѕСЂРѕРІ).')
+	imgui.Text(u8'5. РђР¤Рљ РёР»Рё РЅРµСЏРІРєР° РІРѕ РІСЂРµРјСЏ РЅР°Р±РѕСЂР°')
 end
 
 function Uearhuya()
 	local ImVec4 = imgui.ImVec4
-	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"Администрация Президента.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Президент");
+	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"РђРґРјРёРЅРёСЃС‚СЂР°С†РёСЏ РџСЂРµР·РёРґРµРЅС‚Р°.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РџСЂРµР·РёРґРµРЅС‚");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит всеми гос.структурами и областью в целом");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Вице-Президент");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РІСЃРµРјРё РіРѕСЃ.СЃС‚СЂСѓРєС‚СѓСЂР°РјРё Рё РѕР±Р»Р°СЃС‚СЊСЋ РІ С†РµР»РѕРј");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит всеми гос.структурами,не включая Директора ФСБ и его Заместителей.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Мин.Обороны");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РІСЃРµРјРё РіРѕСЃ.СЃС‚СЂСѓРєС‚СѓСЂР°РјРё,РЅРµ РІРєР»СЋС‡Р°СЏ Р”РёСЂРµРєС‚РѕСЂР° Р¤РЎР‘ Рё РµРіРѕ Р—Р°РјРµСЃС‚РёС‚РµР»РµР№.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РњРёРЅ.РћР±РѕСЂРѕРЅС‹");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит Армиями.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Мин.МВД");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РђСЂРјРёСЏРјРё.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РњРёРЅ.РњР’Р”");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит ПА, ПЮ и ГИБДД.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Мин. Здравоохранения");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РџРђ, РџР® Рё Р“РР‘Р”Р”.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РњРёРЅ. Р—РґСЂР°РІРѕРѕС…СЂР°РЅРµРЅРёСЏ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит ЦГБ-А и ЦГБ-Ю.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Мин.Связи");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ Р¦Р“Р‘-Рђ Рё Р¦Р“Р‘-Р®.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РњРёРЅ.РЎРІСЏР·Рё");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит СМИ.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Министр финансов");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РЎРњР.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РњРёРЅРёСЃС‚СЂ С„РёРЅР°РЅСЃРѕРІ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит АШ.");
-	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"Администрация Батырево.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Мэр");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РђРЁ.");
+	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"РђРґРјРёРЅРёСЃС‚СЂР°С†РёСЏ Р‘Р°С‚С‹СЂРµРІРѕ.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РњСЌСЂ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит гос.структурами Батырево, подчиняется Президенту...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Вице-Президенту и Руководству ФСБ.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Вице-Мэр");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РіРѕСЃ.СЃС‚СЂСѓРєС‚СѓСЂР°РјРё Р‘Р°С‚С‹СЂРµРІРѕ, РїРѕРґС‡РёРЅСЏРµС‚СЃСЏ РџСЂРµР·РёРґРµРЅС‚Сѓ...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ Рё Р СѓРєРѕРІРѕРґСЃС‚РІСѓ Р¤РЎР‘.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р’РёС†Рµ-РњСЌСЂ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит гос.структурами Батырево, подчиняется Президенту...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Вице-Президенту ,Мэру ,Зам.Директору и Директору ФСБ.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Инспектор");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РіРѕСЃ.СЃС‚СЂСѓРєС‚СѓСЂР°РјРё Р‘Р°С‚С‹СЂРµРІРѕ, РїРѕРґС‡РёРЅСЏРµС‚СЃСЏ РџСЂРµР·РёРґРµРЅС‚Сѓ...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ ,РњСЌСЂСѓ ,Р—Р°Рј.Р”РёСЂРµРєС‚РѕСЂСѓ Рё Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РРЅСЃРїРµРєС‚РѕСЂ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит гос.структурами Батырево, подчиняется Вице-Мэру ...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...и выше поставленным ему лицам.");
-	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"Федеральная Служба Безопасности.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Директор");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РіРѕСЃ.СЃС‚СЂСѓРєС‚СѓСЂР°РјРё Р‘Р°С‚С‹СЂРµРІРѕ, РїРѕРґС‡РёРЅСЏРµС‚СЃСЏ Р’РёС†Рµ-РњСЌСЂСѓ ...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Рё РІС‹С€Рµ РїРѕСЃС‚Р°РІР»РµРЅРЅС‹Рј РµРјСѓ Р»РёС†Р°Рј.");
+	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"Р¤РµРґРµСЂР°Р»СЊРЅР°СЏ РЎР»СѓР¶Р±Р° Р‘РµР·РѕРїР°СЃРЅРѕСЃС‚Рё.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р”РёСЂРµРєС‚РѕСЂ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит всем в области, подчиняются исключительно Президенту.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Зам.Директора");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РІСЃРµРј РІ РѕР±Р»Р°СЃС‚Рё, РїРѕРґС‡РёРЅСЏСЋС‚СЃСЏ РёСЃРєР»СЋС‡РёС‚РµР»СЊРЅРѕ РџСЂРµР·РёРґРµРЅС‚Сѓ.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р—Р°Рј.Р”РёСЂРµРєС‚РѕСЂР°");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"всем в области, не включая Президента");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Инспектор");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"РІСЃРµРј РІ РѕР±Р»Р°СЃС‚Рё, РЅРµ РІРєР»СЋС‡Р°СЏ РџСЂРµР·РёРґРµРЅС‚Р°");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РРЅСЃРїРµРєС‚РѕСЂ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит ТОЛЬКО силовыми гос.структурами, не включая...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Полковников и выше. Подчиняется толькоСтаршему Руководству ФСБ и Президенту.");
-	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"Полиция и ГИБДД.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Генерал");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РўРћР›Р¬РљРћ СЃРёР»РѕРІС‹РјРё РіРѕСЃ.СЃС‚СЂСѓРєС‚СѓСЂР°РјРё, РЅРµ РІРєР»СЋС‡Р°СЏ...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...РџРѕР»РєРѕРІРЅРёРєРѕРІ Рё РІС‹С€Рµ. РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ С‚РѕР»СЊРєРѕРЎС‚Р°СЂС€РµРјСѓ Р СѓРєРѕРІРѕРґСЃС‚РІСѓ Р¤РЎР‘ Рё РџСЂРµР·РёРґРµРЅС‚Сѓ.");
+	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"РџРѕР»РёС†РёСЏ Рё Р“РР‘Р”Р”.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р“РµРЅРµСЂР°Р»");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по званию силовиками. Подчиняется: Директору ФСБ...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Зам Директора ФСБ, Вице-Президенту, Президенту и Мин.МВД");
-	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"Генералом ГИБДД руководит ещё - Мэр и Вице-Мэр.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Полковник");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ Р·РІР°РЅРёСЋ СЃРёР»РѕРІРёРєР°РјРё. РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Р—Р°Рј Р”РёСЂРµРєС‚РѕСЂР° Р¤РЎР‘, Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ, РџСЂРµР·РёРґРµРЅС‚Сѓ Рё РњРёРЅ.РњР’Р”");
+	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"Р“РµРЅРµСЂР°Р»РѕРј Р“РР‘Р”Р” СЂСѓРєРѕРІРѕРґРёС‚ РµС‰С‘ - РњСЌСЂ Рё Р’РёС†Рµ-РњСЌСЂ.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РџРѕР»РєРѕРІРЅРёРє");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по званию силовиками ВНУТРИ своей фракции...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Подчиняется: Директору ФСБ, Зам.Директора, Вице-Президенту, Президенту и Мин. МВД.");
-	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"Полковником ГИБДД руководит ещё - Мэр ,Вице Мэр и Инспектор АБ.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Подполковник и Майор");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ Р·РІР°РЅРёСЋ СЃРёР»РѕРІРёРєР°РјРё Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘, Р—Р°Рј.Р”РёСЂРµРєС‚РѕСЂР°, Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ, РџСЂРµР·РёРґРµРЅС‚Сѓ Рё РњРёРЅ. РњР’Р”.");
+	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"РџРѕР»РєРѕРІРЅРёРєРѕРј Р“РР‘Р”Р” СЂСѓРєРѕРІРѕРґРёС‚ РµС‰С‘ - РњСЌСЂ ,Р’РёС†Рµ РњСЌСЂ Рё РРЅСЃРїРµРєС‚РѕСЂ РђР‘.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РџРѕРґРїРѕР»РєРѕРІРЅРёРє Рё РњР°Р№РѕСЂ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по званию силовиками ВНУТРИ своей фракции...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Подчиняется: Полковнику и выше поставленным лицам.");
-	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"АРМИЯ 'АМВ' и 'ВМФ'");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Генерал");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ Р·РІР°РЅРёСЋ СЃРёР»РѕРІРёРєР°РјРё Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: РџРѕР»РєРѕРІРЅРёРєСѓ Рё РІС‹С€Рµ РїРѕСЃС‚Р°РІР»РµРЅРЅС‹Рј Р»РёС†Р°Рј.");
+	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"РђР РњРРЇ 'РђРњР’' Рё 'Р’РњР¤'");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р“РµРЅРµСЂР°Р»");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по званию ВНУТРИ своей фракции...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Подчиняется: Директору ФСБ, Зам Директора ФСБ, Вице-Президенту...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Президенту и Мин.Обороны. (Мэру и Вице Мэру - Для ВВС)");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Полковник");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ Р·РІР°РЅРёСЋ Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘, Р—Р°Рј Р”РёСЂРµРєС‚РѕСЂР° Р¤РЎР‘, Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...РџСЂРµР·РёРґРµРЅС‚Сѓ Рё РњРёРЅ.РћР±РѕСЂРѕРЅС‹. (РњСЌСЂСѓ Рё Р’РёС†Рµ РњСЌСЂСѓ - Р”Р»СЏ Р’Р’РЎ)");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РџРѕР»РєРѕРІРЅРёРє");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по званию ВНУТРИ своей фракции.");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"Подчиняется: Генералу ,Директору ФСБ, Зам.Директора, Вице-Президенту...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Президенту и Мин.Обороны . (Мэру ,Вице Мэру и Инспектору АБ - Для ГИБДД)");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Подполковник и Майор");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ Р·РІР°РЅРёСЋ Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё.");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: Р“РµРЅРµСЂР°Р»Сѓ ,Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘, Р—Р°Рј.Р”РёСЂРµРєС‚РѕСЂР°, Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...РџСЂРµР·РёРґРµРЅС‚Сѓ Рё РњРёРЅ.РћР±РѕСЂРѕРЅС‹ . (РњСЌСЂСѓ ,Р’РёС†Рµ РњСЌСЂСѓ Рё РРЅСЃРїРµРєС‚РѕСЂСѓ РђР‘ - Р”Р»СЏ Р“РР‘Р”Р”)");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"РџРѕРґРїРѕР»РєРѕРІРЅРёРє Рё РњР°Р№РѕСЂ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по званию ВНУТРИ своей фракции...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Подчиняется: Полковнику и выше поставленным лицам.");
-	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"СМИ");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Директор ");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ Р·РІР°РЅРёСЋ Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: РџРѕР»РєРѕРІРЅРёРєСѓ Рё РІС‹С€Рµ РїРѕСЃС‚Р°РІР»РµРЅРЅС‹Рј Р»РёС†Р°Рј.");
+	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"РЎРњР");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р”РёСЂРµРєС‚РѕСЂ ");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по должности ВНУТРИ своей фракции. Подчиняется:...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Директору ФСБ, Зам.Дир. ФСБ, Президенту, Вице-Президенту, и Мин.Связи.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Зам.Директора");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ РґРѕР»Р¶РЅРѕСЃС‚Рё Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё. РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ:...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘, Р—Р°Рј.Р”РёСЂ. Р¤РЎР‘, РџСЂРµР·РёРґРµРЅС‚Сѓ, Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ, Рё РњРёРЅ.РЎРІСЏР·Рё.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р—Р°Рј.Р”РёСЂРµРєС‚РѕСЂР°");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по должности ВНУТРИ своей фракции. Подчиняется: Директору...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Директору ФСБ, Зам.Дир. ФСБ, Президенту, Вице-Президенту, и Мин.Связи.");
-	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"Больницы");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Глав.Врач");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ РґРѕР»Р¶РЅРѕСЃС‚Рё Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё. РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: Р”РёСЂРµРєС‚РѕСЂСѓ...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘, Р—Р°Рј.Р”РёСЂ. Р¤РЎР‘, РџСЂРµР·РёРґРµРЅС‚Сѓ, Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ, Рё РњРёРЅ.РЎРІСЏР·Рё.");
+	imgui.TextColored(ImVec4(1, 1, 0, 1), u8"Р‘РѕР»СЊРЅРёС†С‹");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р“Р»Р°РІ.Р’СЂР°С‡");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по должности ВНУТРИ своей фракции. Подчиняется: Директору ФСБ...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Зам.Дир. ФСБ, Президенту, Вице-Президенту и Министр. Здравохр.");
-	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Зам.Глав.Врача");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ РґРѕР»Р¶РЅРѕСЃС‚Рё Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё. РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Р—Р°Рј.Р”РёСЂ. Р¤РЎР‘, РџСЂРµР·РёРґРµРЅС‚Сѓ, Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ Рё РњРёРЅРёСЃС‚СЂ. Р—РґСЂР°РІРѕС…СЂ.");
+	imgui.TextColored(ImVec4(229, 110, 19, 1), u8"Р—Р°Рј.Р“Р»Р°РІ.Р’СЂР°С‡Р°");
 	imgui.SameLine();
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"->");
 	imgui.SameLine();
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"руководит младшими по должности ВНУТРИ своей фракции. Подчиняется: Директору ФСБ...");
-	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Глав.Врачу, Президенту, Вице-Президенту и Министр. Здравохр.");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"СЂСѓРєРѕРІРѕРґРёС‚ РјР»Р°РґС€РёРјРё РїРѕ РґРѕР»Р¶РЅРѕСЃС‚Рё Р’РќРЈРўР Р СЃРІРѕРµР№ С„СЂР°РєС†РёРё. РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ: Р”РёСЂРµРєС‚РѕСЂСѓ Р¤РЎР‘...");
+	imgui.TextColored(ImVec4(128, 28, 28, 1), u8"...Р“Р»Р°РІ.Р’СЂР°С‡Сѓ, РџСЂРµР·РёРґРµРЅС‚Сѓ, Р’РёС†Рµ-РџСЂРµР·РёРґРµРЅС‚Сѓ Рё РњРёРЅРёСЃС‚СЂ. Р—РґСЂР°РІРѕС…СЂ.");
 	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8" ");
-	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"Примечание: ФСБ может проверить любую гос фракцию в целом и им не должно быть отказано.");
-	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"В случае отказа Лидер организации несет полную ответственность.");
-	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"Дополнение: Если в организации менее 3 - х сотрудников проверку");
-	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"фракции проводить запрещено(Не включая Лидера и Заместителей).");
+	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"РџСЂРёРјРµС‡Р°РЅРёРµ: Р¤РЎР‘ РјРѕР¶РµС‚ РїСЂРѕРІРµСЂРёС‚СЊ Р»СЋР±СѓСЋ РіРѕСЃ С„СЂР°РєС†РёСЋ РІ С†РµР»РѕРј Рё РёРј РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РѕС‚РєР°Р·Р°РЅРѕ.");
+	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"Р’ СЃР»СѓС‡Р°Рµ РѕС‚РєР°Р·Р° Р›РёРґРµСЂ РѕСЂРіР°РЅРёР·Р°С†РёРё РЅРµСЃРµС‚ РїРѕР»РЅСѓСЋ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊ.");
+	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"Р”РѕРїРѕР»РЅРµРЅРёРµ: Р•СЃР»Рё РІ РѕСЂРіР°РЅРёР·Р°С†РёРё РјРµРЅРµРµ 3 - С… СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РїСЂРѕРІРµСЂРєСѓ");
+	imgui.TextColored(ImVec4(0.3, 0.3, 0.3, 1.0), u8"С„СЂР°РєС†РёРё РїСЂРѕРІРѕРґРёС‚СЊ Р·Р°РїСЂРµС‰РµРЅРѕ(РќРµ РІРєР»СЋС‡Р°СЏ Р›РёРґРµСЂР° Рё Р—Р°РјРµСЃС‚РёС‚РµР»РµР№).");
 	imgui.Text("")
 	imgui.Separator()
 	imgui.Text("")
@@ -1857,77 +1857,77 @@ function Uearhuya()
 end
 
 function Loka()
-	if imgui.TreeNode(u8'Гос. огранизации') then
-		imgui.Text(u8"Администрация призидента")
+	if imgui.TreeNode(u8'Р“РѕСЃ. РѕРіСЂР°РЅРёР·Р°С†РёРё') then
+		imgui.Text(u8"РђРґРјРёРЅРёСЃС‚СЂР°С†РёСЏ РїСЂРёР·РёРґРµРЅС‚Р°")
 		imgui.Image(image_adm_priz, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"Администрация Батырево")
+		imgui.Text(u8"РђРґРјРёРЅРёСЃС‚СЂР°С†РёСЏ Р‘Р°С‚С‹СЂРµРІРѕ")
 		imgui.Image(image_adm_bat, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"ФСБ")
+		imgui.Text(u8"Р¤РЎР‘")
 		imgui.Image(image_fsb, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"Полиция Южного")
+		imgui.Text(u8"РџРѕР»РёС†РёСЏ Р®Р¶РЅРѕРіРѕ")
 		imgui.Image(image_pol_uzk, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"Полиция Арзамаса")
+		imgui.Text(u8"РџРѕР»РёС†РёСЏ РђСЂР·Р°РјР°СЃР°")
 		imgui.Image(image_pol_arz, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"ГИБДД")
+		imgui.Text(u8"Р“РР‘Р”Р”")
 		imgui.Image(image_gubdd, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"СМИ")
+		imgui.Text(u8"РЎРњР")
 		imgui.Image(image_smi, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"ЦГБ Арзамаса")
+		imgui.Text(u8"Р¦Р“Р‘ РђСЂР·Р°РјР°СЃР°")
 		imgui.Image(image_bolka_arz, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"ЦГБ Южного")
+		imgui.Text(u8"Р¦Р“Р‘ Р®Р¶РЅРѕРіРѕ")
 		imgui.Image(image_bolka_uzk, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"Автошкола")
+		imgui.Text(u8"РђРІС‚РѕС€РєРѕР»Р°")
 		imgui.Image(image_avtochkola, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"ВМФ")
+		imgui.Text(u8"Р’РњР¤")
 		imgui.Image(image_vmf, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8'Армия"МВ"')
+		imgui.Text(u8'РђСЂРјРёСЏ"РњР’"')
 		imgui.Image(image_amv, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 		imgui.TreePop()
 	end
-	if imgui.TreeNode(u8'ОПГ/Мафия') then
-		imgui.Text(u8"Итальянская мафия")
+	if imgui.TreeNode(u8'РћРџР“/РњР°С„РёСЏ') then
+		imgui.Text(u8"РС‚Р°Р»СЊСЏРЅСЃРєР°СЏ РјР°С„РёСЏ")
 		imgui.Image(image_ut_mafia, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
-		imgui.Text(u8"Русская мафия")
+		imgui.Text(u8"Р СѓСЃСЃРєР°СЏ РјР°С„РёСЏ")
 		imgui.Image(image_rus_mafia, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
-		imgui.Text(u8"Якудза")
+		imgui.Text(u8"РЇРєСѓРґР·Р°")
 		imgui.Image(image_yakydza, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 
-		imgui.Text(u8"Тяп-Ляп")
+		imgui.Text(u8"РўСЏРї-Р›СЏРї")
 		imgui.Image(image_tyap_lyap, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
-		imgui.Text(u8"Суконка")
+		imgui.Text(u8"РЎСѓРєРѕРЅРєР°")
 		imgui.Image(image_sykonka, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
-		imgui.Text(u8"Тукаевские")
+		imgui.Text(u8"РўСѓРєР°РµРІСЃРєРёРµ")
 		imgui.Image(image_tykaevckie, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
-		imgui.Text(u8"Хади-Такташ")
+		imgui.Text(u8"РҐР°РґРё-РўР°РєС‚Р°С€")
 		imgui.Image(image_hadi_taktash, imgui.ImVec2(512,288));
 		imgui.Text(u8" ")
 		imgui.TreePop()
